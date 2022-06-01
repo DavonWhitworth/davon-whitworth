@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  width: 60%;
   display: grid;
   grid-template-columns: 1fr 2fr;
   color: white;
@@ -15,17 +14,6 @@ const Appinfo = styled.div`
   padding: 5px;
   line-height: 1.7;
 `;
-
-const Apppic = styled.img`
-  margin: 5px;
-`;
-
-// const Apppic = styled.div`
-//   margin: 5px;
-// `;
-// <Apppic>
-//   <img src={props.imagesrc} alt={props.imagealt} />
-// </Apppic>;
 
 const Title = styled.a`
   margin: 3px;
@@ -47,7 +35,7 @@ function projectcard(props) {
   return (
     <>
       <Card>
-        <Apppic></Apppic>
+        <img src={props.imagesrc} alt={props.imagealt} />
         <Appinfo>
           <Title target="_blank" href={props.link}>
             {props.title}
