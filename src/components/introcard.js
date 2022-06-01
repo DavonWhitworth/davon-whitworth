@@ -21,7 +21,7 @@ const introCard = () => {
       <img src={Pic} alt="Portrait of Davon Whitworth" width="50%" />
       <Infodiv>
         <h1>Davon Whitworth</h1>
-        <h4>Junior Frontend Developer</h4>
+        <h3>Junior Frontend Developer</h3>
       </Infodiv>
     </Headcard>
   );
