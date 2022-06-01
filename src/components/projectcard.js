@@ -7,6 +7,7 @@ const Card = styled.div`
   border: 4px solid grey;
   border-radius: 10px;
   padding: 10px;
+  margin-bottom: 20px;
 `;
 
 const Appinfo = styled.div`
@@ -35,7 +36,12 @@ function projectcard(props) {
   return (
     <>
       <Card>
-        <img src={props.imagesrc} alt={props.imagealt} />
+        <img
+          src={props.imagesrc}
+          alt={props.imagealt}
+          width="100%"
+          height="auto"
+        />
         <Appinfo>
           <Title target="_blank" href={props.link}>
             {props.title}

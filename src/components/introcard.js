@@ -1,17 +1,28 @@
 import styled from "styled-components";
+import Pic from "../projectpics/portrait.jpg";
 
 const Headcard = styled.div`
-  display: grid;
-  grid-template-column: 1fr 1fr;
-  border: 4px solid white;
+  width: 71.5%;
+  margin: 0px 10px 10px 10px;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: auto;
+`;
+
+const Infodiv = styled.div`
+  color: white;
+  grid-column-start: 2;
+  margin-right: 100px;
 `;
 
 const introCard = () => {
   return (
     <Headcard>
-      <h1>Davon Whitworth</h1>
-      <h3>Jr. Frontend Developer</h3>
-      <img src="../projectpics/portrait.jpg" alt="it's me" />
+      <img src={Pic} alt="Portrait of Davon Whitworth" width="50%" />
+      <Infodiv>
+        <h1>Davon Whitworth</h1>
+        <h4>Junior Frontend Developer</h4>
+      </Infodiv>
     </Headcard>
   );
 };

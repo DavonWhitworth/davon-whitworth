@@ -1,12 +1,11 @@
 import "./App.css";
-import styled from "styled-components";
 import Projects from "./components/projectlist";
-import introCard from "./components/introcard";
+import IntroCard from "./components/introcard";
 
 const App = () => {
   return (
     <>
-      <introCard />
+      <IntroCard />
       <Projects />
     </>
   );
