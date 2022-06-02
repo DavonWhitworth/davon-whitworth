@@ -6,7 +6,7 @@ const Headcard = styled.div`
   margin: 0px 10px 10px 10px;
   display: flex;
   align-items: flex-end;
-  flex-wrap: auto;
+  flex-wrap: wrap;
 `;
 
 const Infodiv = styled.div`
