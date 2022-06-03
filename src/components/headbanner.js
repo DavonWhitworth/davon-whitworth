@@ -1,26 +1,38 @@
 import styled from "styled-components";
+import { LinkedinLogo } from "phosphor-react";
+import { Button } from "@chakra-ui/react";
 
 const Banner = styled.div`
-  box-sizing: border-box;
-  background-color: #add8e6;
-  color: black;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  z-index: 999;
+
+  background-color: #112340;
   width: 100%;
-  height: 23px;
+  height: 60px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 `;
 
-const Header = () => {
-  <Banner>
-    I am looking for a junior frontend developer position, please contact me on
-    my
-    <a href="https://www.linkedin.com/in/davon-whitworth-317b301a9/">
-      LinkedIn
-    </a>
-  </Banner>;
+const Bannertext = styled.div`
+  font-size: 1.3em;
+  color: white;
+  justify-content: center;
+  background-color: inherit;
+`;
+
+const Headbanner = () => {
+  return (
+    <Banner>
+      <Bannertext>
+        I am looking for a Junior developer position in the Sacramento region or
+        remote PST
+        <Button colorScheme="teal" size="lg">
+          Please contact me on LinkedIn
+        </Button>
+      </Bannertext>
+    </Banner>
+  );
 };
 
-export default Header;
+export default Headbanner;

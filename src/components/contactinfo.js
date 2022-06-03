@@ -14,6 +14,7 @@ const Infoblock = styled.div`
 const Linkredirect = styled.a`
   color: inherit;
   padding: 5px;
+  background-color: #121111;
 `;
 
 const Info = styled.div`
@@ -26,8 +27,8 @@ const contactInfo = () => {
   return (
     <Infoblock>
       <Info>
-        <House size={24} />
-        Sacramento, California
+        <House size={24} background-color="#121111" />
+        Sacramento, Ca
       </Info>
       <Linkredirect
         target="_blank"
