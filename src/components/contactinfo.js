@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { House, LinkedinLogo, DiscordLogo } from "phosphor-react";
 
 const Infoblock = styled.div`
-  width: 72%;
+  width: 70%;
   background-color: #121111;
   color: white;
   border-radius: 20px;

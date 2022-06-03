@@ -32,7 +32,6 @@ const Description = styled.div`
 `;
 
 function projectcard(props) {
-  console.log(props.imagesrc);
   return (
     <>
       <Card>
