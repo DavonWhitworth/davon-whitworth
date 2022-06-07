@@ -6,10 +6,9 @@ import Lightsitepicture from "../projectpics/lightsitepic.PNG";
 
 const Projectblock = styled.div`
   padding: 5px 30px 5px 30px;
-  background-color: #121111;
-  width 70%;
-  border-radius: 15px;
-
+  background-color: #171717;
+  max-width: 80%;
+  border-radius: 9px;
 `;
 const Listheader = styled.h1`
   background-color: inherit;

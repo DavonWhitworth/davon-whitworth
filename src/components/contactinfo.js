@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { House, LinkedinLogo, DiscordLogo } from "phosphor-react";
 
 const Infoblock = styled.div`
-  width: 70%;
+  width: auto;
   background-color: #121111;
   color: white;
-  border-radius: 20px;
+  border-radius: 9px;
   padding: 15px;
   margin-bottom: 15px;
   line-height: 2;
+  display: inline-block;
 `;
 
 const Linkredirect = styled.a`

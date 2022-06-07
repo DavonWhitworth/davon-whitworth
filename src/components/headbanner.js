@@ -1,17 +1,16 @@
 import styled from "styled-components";
 import { LinkedinLogo } from "phosphor-react";
-import { Button } from "@chakra-ui/react";
 
 const Banner = styled.div`
-  position: sticky;
+  position: fixed;
   top: 0;
-
+  left: 0;
   background-color: #112340;
   width: 100%;
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5px;
 `;
 
 const Bannertext = styled.div`
@@ -19,6 +18,18 @@ const Bannertext = styled.div`
   color: white;
   justify-content: center;
   background-color: inherit;
+  width: auto;
+  align-items: center;
+`;
+
+const LinkedInbutton = styled.a`
+  color: inherit;
+  width: auto;
+  background-color: orange;
+  display: inline-block;
+  border-radius: 4px;
+  margin: 3px;
+  padding: 2px;
 `;
 
 const Headbanner = () => {
@@ -27,9 +38,13 @@ const Headbanner = () => {
       <Bannertext>
         I am looking for a Junior developer position in the Sacramento region or
         remote PST
-        <Button colorScheme="teal" size="lg">
+        <LinkedInbutton
+          target="_blank"
+          href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
+        >
+          <LinkedinLogo />
           Please contact me on LinkedIn
-        </Button>
+        </LinkedInbutton>
       </Bannertext>
     </Banner>
   );
