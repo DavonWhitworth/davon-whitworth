@@ -28,7 +28,7 @@ const introCard = () => {
         border-radius="50%"
         src={Pic}
         alt="Portrait of Davon Whitworth"
-        width="40%"
+         width="40%"
       />
       <Infodiv>
         <h1>Davon Whitworth</h1>
