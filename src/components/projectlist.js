@@ -10,6 +10,7 @@ const Projectblock = styled.div`
   max-width: 80%;
   border-radius: 9px;
 `;
+
 const Listheader = styled.h1`
   background-color: inherit;
   color: white;

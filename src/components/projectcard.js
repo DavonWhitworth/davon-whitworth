@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Card = styled.div`
   display: grid;
+  grid-auto-flow: column;
   grid-template-columns: 1fr 2fr;
   color: white;
   border: 4px solid grey;
@@ -14,6 +15,7 @@ const Appinfo = styled.div`
   margin: 5px;
   padding: 5px;
   line-height: 1.7;
+  min-width: 160px;
 `;
 
 const Title = styled.a`
@@ -31,16 +33,18 @@ const Description = styled.div`
   line-height: 1.2;
 `;
 
+const Projectimg = styled.img`
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+`;
+
 function projectcard(props) {
   return (
     <>
       <Card>
-        <img
-          src={props.imagesrc}
-          alt={props.imagealt}
-          width="100%"
-          height="auto"
-        />
+        <Projectimg src={props.imagesrc} alt={props.imagealt} />
         <Appinfo>
           <Title target="_blank" href={props.link}>
             {props.title}
