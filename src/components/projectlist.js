@@ -7,8 +7,9 @@ import Lightsitepicture from "../projectpics/lightsitepic.PNG";
 const Projectblock = styled.div`
   padding: 5px 30px 5px 30px;
   background-color: #171717;
-  max-width: 80%;
+  max-width: 78%;
   border-radius: 9px;
+  width: auto;
 `;
 
 const Listheader = styled.h1`

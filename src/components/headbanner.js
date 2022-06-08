@@ -5,7 +5,7 @@ const Banner = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #112340;
+  background-color: #333333;
   width: 100%;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@ const Banner = styled.div`
 `;
 
 const Bannertext = styled.div`
-  font-size: 1.3em;
+  font-size: 1em;
   color: white;
   justify-content: center;
   background-color: inherit;
@@ -30,6 +30,7 @@ const LinkedInbutton = styled.a`
   border-radius: 4px;
   margin: 3px;
   padding: 2px;
+  font-weight: 600;
 `;
 
 const Headbanner = () => {
@@ -43,7 +44,7 @@ const Headbanner = () => {
           href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
         >
           <LinkedinLogo />
-          Please contact me on LinkedIn
+          Contact me on LinkedIn
         </LinkedInbutton>
       </Bannertext>
     </Banner>

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: 1fr 2fr;
   color: white;
   border: 4px solid grey;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Appinfo = styled.div`
@@ -16,6 +16,8 @@ const Appinfo = styled.div`
   padding: 5px;
   line-height: 1.7;
   min-width: 160px;
+  max-width: 500px;
+  width: auto;
 `;
 
 const Title = styled.a`
@@ -35,7 +37,7 @@ const Description = styled.div`
 
 const Projectimg = styled.img`
   min-width: 150px;
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
   height: auto;
 `;
