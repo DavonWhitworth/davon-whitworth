@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { House, LinkedinLogo, DiscordLogo } from "phosphor-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 const Infoblock = styled.div`
   width: auto;
@@ -27,20 +28,20 @@ const Info = styled.div`
 const contactInfo = () => {
   return (
     <Infoblock>
-      <Info>
-        <House size={24} background-color="#121111" />
-        Sacramento, Ca
-      </Info>
+      <Info>Sacramento, Ca</Info>
       <Linkredirect
         target="_blank"
         href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
       >
-        <LinkedinLogo size={24} />
+        <FontAwesomeIcon
+          icon={faDiscord}
+          color="white"
+          size="2x"
+          position="fixed"
+        />
         LinkedIn
       </Linkredirect>
-      <Info>
-        <DiscordLogo size={24} />I Be Dog#0111
-      </Info>
+      <Info>I Be Dog#0111</Info>
     </Infoblock>
   );
 };

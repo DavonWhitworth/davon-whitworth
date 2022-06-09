@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { LinkedinLogo } from "phosphor-react";
 
 const Banner = styled.div`
   position: fixed;
@@ -14,7 +13,7 @@ const Banner = styled.div`
 `;
 
 const Bannertext = styled.div`
-  font-size: 1em;
+  font-size: 1.4em;
   color: white;
   justify-content: center;
   background-color: inherit;
@@ -43,7 +42,7 @@ const Headbanner = () => {
           target="_blank"
           href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
         >
-          <LinkedinLogo />
+          <i class="fa-brands fa-linkedin"></i>
           Contact me on LinkedIn
         </LinkedInbutton>
       </Bannertext>

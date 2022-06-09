@@ -8,6 +8,7 @@ const Headcard = styled.div`
   align-items: flex-end;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 15px;
 `;
 
 const Infodiv = styled.div`

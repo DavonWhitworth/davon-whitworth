@@ -7,9 +7,9 @@ import Lightsitepicture from "../projectpics/lightsitepic.PNG";
 const Projectblock = styled.div`
   padding: 5px 30px 5px 30px;
   background-color: #171717;
-  max-width: 78%;
+
   border-radius: 9px;
-  width: auto;
+  max-width: fit-content;
 `;
 
 const Listheader = styled.h1`
@@ -33,7 +33,7 @@ const Projectlist = () => {
       <Projectcard
         title="Vocabulary typing test"
         languages="React"
-        description="A typing test that also helps you develop your vocabulary"
+        description="A typing test that also helps you improve your vocabulary"
         imagesrc={Typingtestpicture}
         imagealt="Vocabulary typing test"
       />

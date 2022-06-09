@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 const Card = styled.div`
   color: white;
-  border: 4px solid grey;
+  border: 2px solid grey;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
   width: auto;
   display: flex;
   flex-wrap: wrap;
+  min-width: fit-content;
 `;
 
 const Appinfo = styled.div`
