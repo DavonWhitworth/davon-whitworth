@@ -7,9 +7,10 @@ import Lightsitepicture from "../projectpics/lightsitepic.PNG";
 const Projectblock = styled.div`
   padding: 5px 30px 5px 30px;
   background-color: #171717;
-
+  margin: auto;
   border-radius: 9px;
   max-width: fit-content;
+  width: fit-content;
 `;
 
 const Listheader = styled.h1`

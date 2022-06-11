@@ -1,16 +1,21 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { faHomeLg } from "@fortawesome/free-solid-svg-icons";
+import { faDiscord, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Infoblock = styled.div`
-  width: auto;
+  width: fit-content;
+  max-width: 220px;
   background-color: #121111;
   color: white;
   border-radius: 9px;
   padding: 15px;
-  margin-bottom: 15px;
-  line-height: 2;
-  display: inline-block;
+  margin: 15px auto 15px auto;
+  line-height: 1.5;
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 130%;
 `;
 
 const Linkredirect = styled.a`
@@ -23,25 +28,46 @@ const Info = styled.div`
   color: inherit;
   background-color: #121111;
   padding: 5px;
+  text-align: left;
 `;
 
 const contactInfo = () => {
   return (
     <Infoblock>
-      <Info>Sacramento, Ca</Info>
-      <Linkredirect
-        target="_blank"
-        href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
-      >
+      <Info>
+        <FontAwesomeIcon
+          icon={faHomeLg}
+          color="white"
+          size="1x"
+          position="fixed"
+        />
+        &nbsp;&nbsp; Sacramento, Ca
+      </Info>
+      <Info>
+        <FontAwesomeIcon
+          icon={faLinkedin}
+          color="white"
+          size="1x"
+          position="fixed"
+        />
+        &nbsp;&nbsp;&nbsp;
+        <Linkredirect
+          target="_blank"
+          href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
+        >
+          LinkedIn
+        </Linkredirect>
+      </Info>
+      <Info>
         <FontAwesomeIcon
           icon={faDiscord}
           color="white"
-          size="2x"
+          size="1x"
           position="fixed"
+          enableBackground={"inherit"}
         />
-        LinkedIn
-      </Linkredirect>
-      <Info>I Be Dog#0111</Info>
+        &nbsp;&nbsp; I Be Dog#0111
+      </Info>
     </Infoblock>
   );
 };
