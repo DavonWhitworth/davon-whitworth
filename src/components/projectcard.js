@@ -39,7 +39,7 @@ const Description = styled.div`
 const Projectimg = styled.img`
   min-width: 150px;
   max-width: 400px;
-  width: 100%;
+  width: auto;
   height: auto;
 `;
 
