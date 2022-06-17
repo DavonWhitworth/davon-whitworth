@@ -43,7 +43,7 @@ const Projectlist = () => {
         languages="React"
         description="A site where you can illuminate your beautiful face with the color of your choice using your screen"
         imagesrc={Lightsitepicture}
-        imagealt="Vocabulary typing test"
+        imagealt="Light sight"
       />
     </Projectblock>
   );
