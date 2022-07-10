@@ -10,15 +10,18 @@ const Banner = styled.div`
   align-items: center;
   justify-content: center;
   padding: 5px;
+  text-align: center;
 `;
 
 const Bannertext = styled.div`
-  font-size: 1.4em;
+  font-size: 1.1em;
   color: white;
   justify-content: center;
   background-color: inherit;
   width: auto;
   align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
 const LinkedInbutton = styled.a`

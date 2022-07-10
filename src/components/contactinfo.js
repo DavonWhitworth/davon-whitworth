@@ -8,7 +8,7 @@ const Infoblock = styled.div`
   max-width: 220px;
   background-color: #121111;
   color: white;
-  border-radius: 9px;
+  border-radius: 6px;
   padding: 15px;
   margin: 15px auto 15px auto;
   line-height: 1.5;

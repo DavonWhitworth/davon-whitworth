@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 const Card = styled.div`
   color: white;
-  border: 2px solid grey;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
-  width: auto;
+  min-width: 250;
+
   display: flex;
   flex-wrap: wrap;
-  min-width: fit-content;
 `;
 
 const Appinfo = styled.div`
@@ -34,13 +33,13 @@ const Langs = styled.div`
 const Description = styled.div`
   margin: 3px;
   line-height: 1.2;
+  width: auto;
 `;
 
 const Projectimg = styled.img`
   min-width: 150px;
   max-width: 400px;
   width: auto;
-  height: auto;
 `;
 
 function projectcard(props) {
