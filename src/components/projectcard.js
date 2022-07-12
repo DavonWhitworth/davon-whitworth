@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from "react";
 
 const Card = styled.div`
   color: white;
@@ -42,7 +43,27 @@ const Projectimg = styled.img`
   width: auto;
 `;
 
+// const LanguageBlock = styled.div`
+//   background-color: grey;
+// `;
+
 function projectcard(props) {
+  // const [langs, setLangs] = useState([]);
+  // let block;
+
+  // const Contructlangs = (props) => {
+  //   let languageblocks = [];
+  //   const arroflangs = props.langs.split("");
+  //   arroflangs.map(
+  //     (x) => (block = <LanguageBlock>{x}</LanguageBlock>),
+  //     setLangs([...langs, block])
+  //   );
+  // };
+
+  // useEffect({
+  //   Contructlangs,
+  // });
+
   return (
     <>
       <Card>
