@@ -43,6 +43,7 @@ const Projectlist = () => {
         description="Light Sight is a react app with various colored buttons that change the background of the page enabling the user to illuminate their face and surrounding environment with the color of their choosing."
         imagesrc={Lightsitepicture}
         imagealt="Light sight picture"
+        link="https://master--lightsight.netlify.app/"
       />
     </Projectblock>
   );
