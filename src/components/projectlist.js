@@ -31,16 +31,16 @@ const Projectlist = () => {
         link="https://gage-langdon.com/pop/"
       />
       <Projectcard
-        title="Vocab typer"
+        title="Vocabulary Typing Test"
         languages="React"
-        description="Vocab Typer is a typing test that can help anyone improve their typing speed and develop their vocabulary. The app calls a dictionary API to create the set text the user types. After each term, the netWPM and average netWPM update, giving information on your performance."
+        description="Vocabulary Typing Test is a typing test that can help anyone improve their typing speed and develop their vocabulary. The app calls a dictionary API to create the set text the user types. After each term, the netWPM and average netWPM update, giving real time data on your performance."
         imagesrc={Typingtestpicture}
         imagealt="Vocabulary typing test picture"
       />
       <Projectcard
-        title="Light sight"
+        title="Light Sight"
         languages="React"
-        description="Light Site is a react app with various colored buttons that change the background of the page enabling the user to illuminate their face and surrounding environment with the color of their choosing."
+        description="Light Sight is a react app with various colored buttons that change the background of the page enabling the user to illuminate their face and surrounding environment with the color of their choosing."
         imagesrc={Lightsitepicture}
         imagealt="Light sight picture"
       />
