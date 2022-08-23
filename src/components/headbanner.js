@@ -31,6 +31,7 @@ const LinkedInbutton = styled.a`
   display: inline-block;
   border-radius: 4px;
   margin: 3px;
+  margin-left: 8px;
   padding: 2px;
 `;
 
