@@ -10,7 +10,6 @@ const Headcard = styled.div`
   justify-content: center;
   gap: 15px;
   margin-top: 100px;
-  border: white 5px dotted;
 `;
 
 const Infodiv = styled.div`
