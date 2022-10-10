@@ -2,14 +2,17 @@ import styled from "styled-components";
 //import Pic from "../projectpics/portrait.jpg";
 
 const Headcard = styled.div`
-  width: auto;
+  width: 100%;
+  min-width: 320px;
   margin: 0px 10px 10px 10px;
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
   justify-content: center;
+  align-self: center;
   gap: 15px;
-  margin-top: 100px;
+  margin: 100px auto;
+  max-width: 1024px;
 `;
 
 const Infodiv = styled.div`

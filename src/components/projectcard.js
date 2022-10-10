@@ -6,8 +6,8 @@ const Card = styled.div`
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
-  min-width: 250;
-
+  width: auto;
+  max-width: 1024px;
   display: flex;
   flex-wrap: wrap;
 `;
@@ -16,9 +16,7 @@ const Appinfo = styled.div`
   margin: 5px;
   padding: 5px;
   line-height: 1.7;
-  min-width: 160px;
-  max-width: 500px;
-  width: auto;
+  width: 375px;
 `;
 
 const Title = styled.a`
@@ -38,9 +36,9 @@ const Description = styled.div`
 `;
 
 const Projectimg = styled.img`
-  min-width: 150px;
+  min-width: 100px;
   max-width: 400px;
-  width: auto;
+  width: 100%;
 `;
 
 // const LanguageBlock = styled.div`

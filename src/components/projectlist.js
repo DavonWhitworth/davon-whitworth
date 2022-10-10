@@ -5,11 +5,12 @@ import Typingtestpicture from "../projectpics/typingtestpic.PNG";
 import Lightsitepicture from "../projectpics/lightsitepic.PNG";
 
 const Projectblock = styled.div`
-  padding: 5px 30px 5px 30px;
+  padding: 5px 20px;
   background-color: #171717;
   margin: auto;
   border-radius: 6px;
   width: fit-content;
+  max-width: 1024px;
 `;
 
 const Listheader = styled.h1`
