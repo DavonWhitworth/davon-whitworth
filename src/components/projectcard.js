@@ -6,7 +6,7 @@ const Card = styled.div`
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
-  width: auto;
+  width: fit-content;
   max-width: 1024px;
   display: flex;
   flex-wrap: wrap;
@@ -16,7 +16,8 @@ const Appinfo = styled.div`
   margin: 5px;
   padding: 5px;
   line-height: 1.7;
-  width: 375px;
+  max-width: 530px;
+  width: 100%;
 `;
 
 const Title = styled.a`
@@ -36,8 +37,7 @@ const Description = styled.div`
 `;
 
 const Projectimg = styled.img`
-  min-width: 100px;
-  max-width: 400px;
+  max-width: 375px;
   width: 100%;
 `;
 
