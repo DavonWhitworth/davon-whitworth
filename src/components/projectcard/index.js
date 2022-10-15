@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import React from "react";
+//import StyledLangs from "./languageblock";
 
 const Card = styled.div`
   color: white;
   border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 20px;
-  width: fit-content;
+  padding: 5px;
+  margin: 5px;
   max-width: 1024px;
+  min-width: fit-content;
+  width: auto;
   display: flex;
   flex-wrap: wrap;
+  background-color: inherit;
 `;
 
 const Appinfo = styled.div`
@@ -18,22 +21,28 @@ const Appinfo = styled.div`
   line-height: 1.7;
   max-width: 530px;
   width: 100%;
+  background-color: inherit;
 `;
 
 const Title = styled.a`
   margin: 3px;
   font-size: 1.5em;
   color: inherit;
+  background-color: inherit;
 `;
 
 const Langs = styled.div`
   margin: 3px;
+  background-color: inherit;
+  font-size: 120%;
 `;
 
 const Description = styled.div`
   margin: 3px;
   line-height: 1.2;
   width: auto;
+  background-color: inherit;
+  font-size: 110%;
 `;
 
 const Projectimg = styled.img`
@@ -41,31 +50,12 @@ const Projectimg = styled.img`
   width: 100%;
 `;
 
-// const LanguageBlock = styled.div`
-//   background-color: grey;
-// `;
-
 function projectcard(props) {
-  // const [langs, setLangs] = useState([]);
-  // let block;
-
-  // const Contructlangs = (props) => {
-  //   let languageblocks = [];
-  //   const arroflangs = props.langs.split("");
-  //   arroflangs.map(
-  //     (x) => (block = <LanguageBlock>{x}</LanguageBlock>),
-  //     setLangs([...langs, block])
-  //   );
-  // };
-
-  // useEffect({
-  //   Contructlangs,
-  // });
-
   return (
     <>
       <Card>
         <Projectimg src={props.imagesrc} alt={props.imagealt} />
+
         <Appinfo>
           <Title target="_blank" href={props.link}>
             {props.title}
