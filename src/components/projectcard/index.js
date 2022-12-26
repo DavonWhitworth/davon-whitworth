@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-//import StyledLangs from "./languageblock";
+import LanguageBox from "./techCard"
 
 const Card = styled.div`
   color: white;
@@ -60,7 +60,7 @@ function projectcard(props) {
           <Title target="_blank" href={props.link}>
             {props.title}
           </Title>
-          <Langs>{props.languages}</Langs>
+          <LanguageBox>{props.languages}</LanguageBox>
           <Description>{props.description} </Description>
         </Appinfo>
       </Card>
