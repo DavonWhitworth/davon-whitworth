@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import LanguageBox from "./techCard"
+import ReactPlayer from 'react-player'
 
 const Card = styled.div`
   color: white;
@@ -13,6 +13,7 @@ const Card = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: inherit;
+  font-family: "Calibri";
 `;
 
 const Appinfo = styled.div`
@@ -46,22 +47,30 @@ const Description = styled.div`
 `;
 
 const Projectimg = styled.img`
-  max-width: 375px;
+  max-width: 400px;
   width: 100%;
 `;
 
-function projectcard(props) {
+const Projectmedia = styled.div`
+max-width: 400px;
+width: 100%;
+`
+
+
+
+function projectcard({description, languages, title, mediaSrc, media_hint, link,imagealt}) {
   return (
     <>
       <Card>
-        <Projectimg src={props.imagesrc} alt={props.imagealt} />
+        {media_hint === "image" ? (<Projectimg src={mediaSrc} alt={imagealt} />) : (<Projectmedia><ReactPlayer playing={true} controls={false} url="https://youtube.com/shorts/PMgS1iq8gXk?feature=share" loop={true} width="100%"/></Projectmedia>)}
+        
 
         <Appinfo>
-          <Title target="_blank" href={props.link}>
-            {props.title}
+          <Title target="_blank" href={link}>
+            {title}
           </Title>
-          <LanguageBox>{props.languages}</LanguageBox>
-          <Description>{props.description} </Description>
+          <Langs>{languages}</Langs>
+          <Description>{description} </Description>
         </Appinfo>
       </Card>
     </>

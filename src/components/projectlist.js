@@ -27,27 +27,50 @@ const Projectlist = () => {
     <Projectblock>
       <Listheader>Hobby Projects</Listheader>
       <Projectcard
+        title="Lyrics Per Minute"
+        languages={"React"}
+        description="LPM is an isomorphic Next.js game where 350 daily players practice typing. The front end server-side renders from Netlify edge nodes, and the back end operates with AWS lambda and serverless MongoDB."
+        mediaSrc='https://youtu.be/WdKdY0Xi0TI'
+        imagealt="Gif of reddit app"
+        link="hhttps://clinquant-cassata-762567.netlify.app/"
+        media_hint="video"
+      />
+      <Projectcard
+        title="Reddit app"
+        languages={"React"}
+        description="A minor recreation of the social media app, Reddit. An easy way to access the front page of the internet "
+        mediaSrc="https://youtube.com/shorts/PMgS1iq8gXk"
+        imagealt="Gif of reddit app"
+        link="https://clinquant-cassata-762567.netlify.app/"
+        media_hint="video"
+      />
+      <Projectcard
         title="Pop"
         languages={"Unity"}
         description="A web game I produced with my 2 brothers. A peacful top-down shooter which synchronizes the enemy waves with it's music track."
-        imagesrc={Poppicture}
+        mediaSrc={Poppicture}
         imagealt="Pop picture"
         link="https://gage-langdon.com/pop/"
+        media_hint="image"
       />
       <Projectcard
         title="Vocabulary Typing Test"
         languages={"React"}
         description="Vocabulary Typing Test is a typing test that can help anyone improve their typing speed and develop their vocabulary. The app calls a dictionary API to create the set text the user types. After each term, the netWPM and average netWPM update, giving real time data on your performance."
-        imagesrc={Typingtestpicture}
+        mediaSrc={Typingtestpicture}
         imagealt="Vocabulary typing test picture"
+        media_hint="image"
+
       />
       <Projectcard
         title="Light Sight"
         languages={'React'}
         description="Light Sight is a react app with various colored buttons that change the background of the page enabling the user to illuminate their face and surrounding environment with the color of their choosing."
-        imagesrc={Lightsitepicture}
+        mediaSrc={Lightsitepicture}
         imagealt="Light sight picture"
         link="https://master--lightsight.netlify.app/"
+        media_hint="image"
+
       />
     </Projectblock>
   );

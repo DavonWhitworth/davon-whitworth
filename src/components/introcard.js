@@ -20,6 +20,7 @@ const Infodiv = styled.div`
   grid-column-start: 2;
   flex-wrap: nowrap;
   text-align: center;
+
 `;
 
 // const Portrait = styled.img`
@@ -32,7 +33,7 @@ const introCard = () => {
     <Headcard>
       <Infodiv>
         <h1>Davon Whitworth</h1>
-        <h3>Junior Frontend Developer</h3>
+        <h3>Junior Frontend Engineer</h3>
       </Infodiv>
     </Headcard>
   );
