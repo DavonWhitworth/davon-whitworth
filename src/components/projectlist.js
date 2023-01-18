@@ -6,7 +6,6 @@ import LightGif from "../files/lightgif.gif";
 import RedditGif from "../files/redditgif.gif";
 import LPMGif from "../files/lpmgif.gif";
 
-
 const Projectblock = styled.div`
   padding: 5px 20px;
   background-color: #171717;
@@ -31,7 +30,7 @@ const Projectlist = () => {
       <Listheader>Hobby Projects</Listheader>
       <Projectcard
         title="Lyrics Per Minute"
-        languages={["React", "Serverless", "AWS", "MongoDB"]}
+        languages={["React"]}
         description="LPM is an isomorphic Next.js game where 350 daily players practice typing. The front end server-side renders from Netlify edge nodes, and the back end operates with AWS lambda and serverless MongoDB."
         mediaSrc={LPMGif}
         imagealt="Gif of reddit app"
