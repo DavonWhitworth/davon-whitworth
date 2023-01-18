@@ -1,19 +1,22 @@
 import styled from "styled-components";
 import React from "react";
-import ReactPlayer from 'react-player'
+import YouTube from "react-youtube";
 
 const Card = styled.div`
   color: white;
   border-radius: 10px;
   padding: 5px;
   margin: 5px;
+  margin-bottom: 10px;
   max-width: 1024px;
   min-width: fit-content;
   width: auto;
   display: flex;
   flex-wrap: wrap;
   background-color: inherit;
-  font-family: "Calibri";
+  font-family: sans-serif;
+  width: 100%;
+  max-width: 500px;
 `;
 
 const Appinfo = styled.div`
@@ -23,6 +26,9 @@ const Appinfo = styled.div`
   max-width: 530px;
   width: 100%;
   background-color: inherit;
+  @media (min-width: 1000) {
+    width: 400px;
+  }
 `;
 
 const Title = styled.a`
@@ -41,29 +47,52 @@ const Langs = styled.div`
 const Description = styled.div`
   margin: 3px;
   line-height: 1.2;
-  width: auto;
+  width: 100%;
   background-color: inherit;
   font-size: 110%;
 `;
 
-const Projectimg = styled.img`
+const Projectimg = styled.img``;
+
+const Projectmedia = styled.div`
   max-width: 400px;
   width: 100%;
 `;
 
-const Projectmedia = styled.div`
-max-width: 400px;
-width: 100%;
-`
-
-
-
-function projectcard({description, languages, title, mediaSrc, media_hint, link,imagealt}) {
+function projectcard({
+  description,
+  languages,
+  title,
+  mediaSrc,
+  media_hint,
+  link,
+  imagealt,
+}) {
+  const videoOptions = {
+    playerVars: {
+      loop: 1,
+      autoplay: 1,
+      controls: 0,
+      rel: 0,
+      showinfo: 0,
+      mute: 1,
+    },
+    playlist: { mediaSrc },
+    height: "390",
+    width: "100%",
+  };
   return (
     <>
       <Card>
-        {media_hint === "image" ? (<Projectimg src={mediaSrc} alt={imagealt} />) : (<Projectmedia><ReactPlayer playing={true} controls={false} url="https://youtube.com/shorts/PMgS1iq8gXk?feature=share" loop={true} width="100%"/></Projectmedia>)}
-        
+        {media_hint === "image" ? (
+          <Projectmedia>
+            <Projectimg src={mediaSrc} alt={imagealt} />
+          </Projectmedia>
+        ) : (
+          <Projectmedia>
+            <YouTube videoId={mediaSrc} opts={videoOptions} loop={true} />
+          </Projectmedia>
+        )}
 
         <Appinfo>
           <Title target="_blank" href={link}>
