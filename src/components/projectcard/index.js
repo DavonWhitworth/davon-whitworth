@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import React from "react";
-import YouTube from "react-youtube";
 
 const Card = styled.div`
   color: white;
@@ -52,9 +51,7 @@ const Description = styled.div`
   font-size: 110%;
 `;
 
-const Projectimg = styled.img``;
-
-const Projectmedia = styled.div`
+const Projectimg = styled.img`
   max-width: 400px;
   width: 100%;
 `;
@@ -64,35 +61,13 @@ function projectcard({
   languages,
   title,
   mediaSrc,
-  media_hint,
   link,
   imagealt,
 }) {
-  const videoOptions = {
-    playerVars: {
-      loop: 1,
-      autoplay: 1,
-      controls: 0,
-      rel: 0,
-      showinfo: 0,
-      mute: 1,
-    },
-    playlist: { mediaSrc },
-    height: "390",
-    width: "100%",
-  };
   return (
     <>
       <Card>
-        {media_hint === "image" ? (
-          <Projectmedia>
-            <Projectimg src={mediaSrc} alt={imagealt} />
-          </Projectmedia>
-        ) : (
-          <Projectmedia>
-            <YouTube videoId={mediaSrc} opts={videoOptions} loop={true} />
-          </Projectmedia>
-        )}
+        <Projectimg src={mediaSrc} alt={imagealt} />
 
         <Appinfo>
           <Title target="_blank" href={link}>
