@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import TechCard from "../techCard";
 
 const Card = styled.div`
   color: white;
@@ -73,7 +74,7 @@ function projectcard({
           <Title target="_blank" href={link}>
             {title}
           </Title>
-          <Langs>{languages}</Langs>
+          <TechCard languages={languages} />
           <Description>{description} </Description>
         </Appinfo>
       </Card>
