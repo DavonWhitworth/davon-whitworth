@@ -18,7 +18,8 @@ const Card = styled.div`
   width: 100%;
   max-width: 1000px;
   @media (max-width: 1010px) {
-    width: 400px;
+    width: auto;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
