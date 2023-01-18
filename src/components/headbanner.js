@@ -39,13 +39,13 @@ const Headbanner = () => {
   return (
     <Banner>
       <Bannertext>
-        I am looking for a Junior developer position in the Sacramento region or
+        I am looking for a Junior engineer position in the Sacramento region or
         remote PST
         <LinkedInbutton
           target="_blank"
           href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
         >
-          <i class="fa-brands fa-linkedin"></i>
+          <i className="fa-brands fa-linkedin"></i>
           Contact me on LinkedIn
         </LinkedInbutton>
       </Bannertext>

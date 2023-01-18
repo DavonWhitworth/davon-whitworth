@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 const Headcard = styled.div`
   width: 100%;
-  min-width: 320px;
-  margin: 0px 10px 10px 10px;
+  min-width: 300px;
+  max-width: 1024px;
+
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
@@ -12,7 +13,6 @@ const Headcard = styled.div`
   align-self: center;
   gap: 15px;
   margin: 100px auto;
-  max-width: 1024px;
 `;
 
 const Infodiv = styled.div`
@@ -32,7 +32,7 @@ const introCard = () => {
     <Headcard>
       <Infodiv>
         <h1>Davon Whitworth</h1>
-        <h3>Junior Frontend Developer</h3>
+        <h3>Junior Frontend Engineer</h3>
       </Infodiv>
     </Headcard>
   );

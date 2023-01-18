@@ -1,18 +1,21 @@
 import styled from "styled-components";
 import React from "react";
-//import StyledLangs from "./languageblock";
 
 const Card = styled.div`
   color: white;
   border-radius: 10px;
   padding: 5px;
   margin: 5px;
+  margin-bottom: 10px;
   max-width: 1024px;
   min-width: fit-content;
   width: auto;
   display: flex;
   flex-wrap: wrap;
   background-color: inherit;
+  font-family: sans-serif;
+  width: 100%;
+  max-width: 500px;
 `;
 
 const Appinfo = styled.div`
@@ -22,6 +25,9 @@ const Appinfo = styled.div`
   max-width: 530px;
   width: 100%;
   background-color: inherit;
+  @media (min-width: 1000) {
+    width: 400px;
+  }
 `;
 
 const Title = styled.a`
@@ -40,28 +46,35 @@ const Langs = styled.div`
 const Description = styled.div`
   margin: 3px;
   line-height: 1.2;
-  width: auto;
+  width: 100%;
   background-color: inherit;
   font-size: 110%;
 `;
 
 const Projectimg = styled.img`
-  max-width: 375px;
+  max-width: 400px;
   width: 100%;
 `;
 
-function projectcard(props) {
+function projectcard({
+  description,
+  languages,
+  title,
+  mediaSrc,
+  link,
+  imagealt,
+}) {
   return (
     <>
       <Card>
-        <Projectimg src={props.imagesrc} alt={props.imagealt} />
+        <Projectimg src={mediaSrc} alt={imagealt} />
 
         <Appinfo>
-          <Title target="_blank" href={props.link}>
-            {props.title}
+          <Title target="_blank" href={link}>
+            {title}
           </Title>
-          <Langs>{props.languages}</Langs>
-          <Description>{props.description} </Description>
+          <Langs>{languages}</Langs>
+          <Description>{description} </Description>
         </Appinfo>
       </Card>
     </>
