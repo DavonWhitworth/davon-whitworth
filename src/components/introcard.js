@@ -32,7 +32,7 @@ const introCard = () => {
     <Headcard>
       <Infodiv>
         <h1>Davon Whitworth</h1>
-        <h3>Junior Frontend Engineer</h3>
+        <h3>Frontend Software Engineer</h3>
       </Infodiv>
     </Headcard>
   );
