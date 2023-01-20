@@ -18,8 +18,6 @@ const Card = styled.div`
 `;
 
 export default function TechCard({ languages }) {
-  //   const [boxes, setBoxes] = useState([]);
-  console.log(languages);
   const box = (
     <LanguagesContainer>
       {languages.map((lang, key) => {

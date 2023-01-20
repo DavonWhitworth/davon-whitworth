@@ -14,7 +14,7 @@ const Card = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: inherit;
-
+  font-family: "Lato";
   width: 100%;
   max-width: 1000px;
   @media (max-width: 1010px) {

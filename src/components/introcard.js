@@ -5,7 +5,7 @@ const Headcard = styled.div`
   width: 100%;
   min-width: 300px;
   max-width: 1024px;
-
+  font-family: "HELVETICA";
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
