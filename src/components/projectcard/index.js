@@ -6,15 +6,15 @@ const Card = styled.div`
   color: white;
   border-radius: 10px;
   padding: 5px;
-  margin: 5px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   max-width: 1024px;
   min-width: fit-content;
   width: auto;
   display: flex;
   flex-wrap: wrap;
   background-color: inherit;
-  font-family: sans-serif;
+  font-family: "Lato";
   width: 100%;
   max-width: 1000px;
   @media (max-width: 1010px) {
@@ -22,6 +22,9 @@ const Card = styled.div`
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 40px;
+    border: solid 0.5px rgba(255, 255, 255, 0.1);
+    padding: 12px;
   }
 `;
 

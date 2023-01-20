@@ -57,6 +57,7 @@ const Projectlist = () => {
         languages={["React"]}
         description="Vocabulary Typing Test is a typing test that can help anyone improve their typing speed and develop their vocabulary. The app calls a dictionary API to create the set text the user types. After each term, the netWPM and average netWPM update, giving real time data on your performance."
         mediaSrc={TypingGif}
+        link="https://shimmering-dolphin-d470cd.netlify.app/"
         imagealt="Vocabulary typing test picture"
       />
       <Projectcard
