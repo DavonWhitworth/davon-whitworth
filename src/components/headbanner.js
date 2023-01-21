@@ -27,7 +27,7 @@ const Bannertext = styled.div`
 const LinkedInbutton = styled.a`
   color: inherit;
   width: auto;
-  background-color: #738adb;
+  background-color: #435594;
   display: inline-block;
   border-radius: 4px;
   margin: 3px;
