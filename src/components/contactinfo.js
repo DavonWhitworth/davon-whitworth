@@ -6,7 +6,7 @@ import { faDiscord, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 const Infoblock = styled.div`
   width: fit-content;
   max-width: 220px;
-  background-color: #121111;
+  background-color: #171717;
   color: white;
   border-radius: 6px;
   padding: 15px;
@@ -21,12 +21,12 @@ const Infoblock = styled.div`
 const Linkredirect = styled.a`
   color: inherit;
   padding: 5px;
-  background-color: #121111;
+  background-color: inherit;
 `;
 
 const Info = styled.div`
   color: inherit;
-  background-color: #121111;
+  background-color: inherit;
   padding: 5px;
   text-align: left;
 `;

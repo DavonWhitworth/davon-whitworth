@@ -22,6 +22,14 @@ const Infodiv = styled.div`
   text-align: center;
 `;
 
+const Titlediv = styled.h3`
+  color: rgba(255, 255, 255, 0.9);
+`;
+
+const Namediv = styled.h1`
+  font-size: 3em;
+`;
+
 // const Portrait = styled.img`
 //   border-radius: 10px;
 //   min-width: 300px;
@@ -31,8 +39,8 @@ const introCard = () => {
   return (
     <Headcard>
       <Infodiv>
-        <h1>Davon Whitworth</h1>
-        <h3>Frontend Software Engineer</h3>
+        <Namediv>Davon Whitworth</Namediv>
+        <Titlediv>Frontend Software Engineer</Titlediv>
       </Infodiv>
     </Headcard>
   );

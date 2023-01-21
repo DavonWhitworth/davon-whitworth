@@ -14,17 +14,18 @@ const Card = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: inherit;
-  font-family: "Lato";
+  font-family: "Tahoma";
   width: 100%;
+
   max-width: 1000px;
   @media (max-width: 1010px) {
     width: auto;
-    max-width: 400px;
+    max-width: 350px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
-    border: solid 0.5px rgba(255, 255, 255, 0.1);
     padding: 12px;
+    border: grey 0.1px solid;
   }
 `;
 
@@ -33,18 +34,22 @@ const Appinfo = styled.div`
   padding: 5px;
   line-height: 1.7;
   max-width: 530px;
-  width: 100%;
+  width: auto;
   background-color: inherit;
-  @media (min-width: 1000) {
+  @media (min-width: 1000px) {
     width: 400px;
+  }
+  @media (max-width: 1010px) {
+    max-width: 350px;
   }
 `;
 
 const Title = styled.a`
   margin: 3px;
-  font-size: 1.5em;
-  color: inherit;
+  font-size: 1.6em;
+  color: #516ac4;
   background-color: inherit;
+  text-decoration: none;
 `;
 
 const Description = styled.div`
@@ -53,11 +58,13 @@ const Description = styled.div`
   width: 100%;
   background-color: inherit;
   font-size: 110%;
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 const Projectimg = styled.img`
-  max-width: 400px;
+  max-width: 350px;
   width: 100%;
+  border-radius: 10px;
 `;
 
 function projectcard({

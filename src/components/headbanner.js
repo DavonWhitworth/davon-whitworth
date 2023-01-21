@@ -27,12 +27,13 @@ const Bannertext = styled.div`
 const LinkedInbutton = styled.a`
   color: inherit;
   width: auto;
-  background-color: #a35900;
+  background-color: #738adb;
   display: inline-block;
   border-radius: 4px;
   margin: 3px;
   margin-left: 8px;
-  padding: 2px;
+  padding: 6px;
+  text-decoration: none;
 `;
 
 const Headbanner = () => {
