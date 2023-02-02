@@ -39,7 +39,7 @@ const Projectlist = () => {
       <Projectcard
         title="Reddit app"
         languages={["React"]}
-        description="A minor recreation of the social media app, Reddit, the front page of the internet. This project was a great was for me to practice REST API and global state management for efficiency and cleanliness."
+        description="A minor recreation of the social media app, Reddit, the front page of the internet. This project was a great way for me to practice REST API and global state management for efficiency and cleanliness."
         mediaSrc={RedditGif}
         imagealt="Gif of reddit app"
         link="https://clinquant-cassata-762567.netlify.app/"
