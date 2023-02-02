@@ -40,7 +40,7 @@ const Headbanner = () => {
   return (
     <Banner>
       <Bannertext>
-        I am looking for a Junior Software Engineer position in the Sacramento
+        I am looking for an Entry Level Junior Software Engineer position in the Sacramento
         region or remote PST
         <LinkedInbutton
           target="_blank"
