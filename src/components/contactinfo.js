@@ -4,19 +4,20 @@ import { faHomeLg } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Infoblock = styled.div`
-  width: fit-content;
+  width: auto;
+  min-width: 150px;
   max-width: 220px;
   background-color: #171717;
   color: white;
   border-radius: 6px;
   padding: 15px;
-  margin: 15px auto 15px auto;
   line-height: 1.5;
   align-self: center;
   display: flex;
   flex-wrap: wrap;
   font-size: 130%;
 `;
+//margin: 15px auto 15px auto;
 
 const Linkredirect = styled.a`
   color: inherit;
@@ -33,6 +34,7 @@ const Info = styled.div`
 
 const contactInfo = () => {
   return (
+    <>
     <Infoblock>
       <Info>
         <FontAwesomeIcon
@@ -69,6 +71,7 @@ const contactInfo = () => {
         &nbsp;&nbsp; I Be Dog#0111
       </Info>
     </Infoblock>
+    </>
   );
 };
 
