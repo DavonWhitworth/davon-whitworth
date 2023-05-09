@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHomeLg } from "@fortawesome/free-solid-svg-icons";
-import { faDiscord, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import {
+  faDiscord,
+  faLinkedin,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Infoblock = styled.div`
   width: fit-content;
@@ -56,6 +60,18 @@ const contactInfo = () => {
           href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
         >
           LinkedIn
+        </Linkredirect>
+      </Info>
+      <Info>
+        <FontAwesomeIcon
+          icon={faGithub}
+          color="white"
+          size="1x"
+          position="fixed"
+        />
+        &nbsp;&nbsp;&nbsp;
+        <Linkredirect target="_blank" href="https://github.com/DavonWhitworth">
+          GitHub
         </Linkredirect>
       </Info>
       <Info>
