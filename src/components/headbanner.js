@@ -40,8 +40,8 @@ const Headbanner = () => {
   return (
     <Banner>
       <Bannertext>
-        I am looking for an Entry Level Software Engineer position in the Sacramento
-        region or remote PST
+        Looking for an Entry Level Frontend Engineer position in the Sacramento
+        region or remote
         <LinkedInbutton
           target="_blank"
           href="https://www.linkedin.com/in/davon-whitworth-317b301a9/"
