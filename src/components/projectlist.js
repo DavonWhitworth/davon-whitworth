@@ -31,7 +31,7 @@ const Projectlist = () => {
       <Projectcard
         title="Lyrics Per Minute"
         languages={["TypeScript", "JavaScript", "HTML", "CSS"]}
-        description="LPM is an isomorphic Next.js game where 350 daily players practice typing. The front end server-side renders from Netlify edge nodes, and the back end operates with AWS lambda and serverless MongoDB."
+        description="LPM is an isomorphic Next.js game where up to 5000 players, monthly, practice typing. The front end server-side renders from Netlify edge nodes, and the back end operates with AWS lambda and serverless MongoDB."
         mediaSrc={LPMGif}
         imagealt="Gif of reddit app"
         link="https://lyricsperminute.com"
@@ -47,7 +47,7 @@ const Projectlist = () => {
       <Projectcard
         title="Pop"
         languages={["C#"]}
-        description="A web game I produced with my 2 brothers. A peacful top-down shooter which synchronizes the enemy waves with it's music track."
+        description="A web game I produced with my 2 brothers. A peaceful top-down shooter which synchronizes the enemy waves with its music track."
         mediaSrc={PopGif}
         imagealt="Pop picture"
         link="https://gage-langdon.com/pop/"
