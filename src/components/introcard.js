@@ -1,11 +1,11 @@
-import styled from "styled-components";
-//import Pic from "../projectpics/portrait.jpg";
+import styled from 'styled-components';
+import { AnimatePresence, motion } from 'motion/react';
 
 const Headcard = styled.div`
   width: 100%;
   min-width: 300px;
   max-width: 1024px;
-  font-family: "HELVETICA";
+  font-family: 'HELVETICA';
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
@@ -30,19 +30,30 @@ const Namediv = styled.h1`
   font-size: 3em;
 `;
 
-// const Portrait = styled.img`
-//   border-radius: 10px;
-//   min-width: 300px;
-// `;
-
-const introCard = () => {
+const introCard = ({ headerVisible }) => {
   return (
-    <Headcard>
-      <Infodiv>
-        <Namediv>Davon Whitworth</Namediv>
-        <Titlediv>Frontend Software Engineer</Titlediv>
-      </Infodiv>
-    </Headcard>
+    <>
+      <Headcard>
+        <Infodiv>
+          <AnimatePresence
+            initial={false}
+            animate={{ transition: { duration: 2 } }}
+          >
+            {headerVisible && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <Namediv>Davon Whitworth</Namediv>
+                <Titlediv>Frontend Software Engineer</Titlediv>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </Infodiv>
+      </Headcard>
+    </>
   );
 };
 
