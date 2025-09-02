@@ -1,27 +1,55 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import {
+  FaReact,
+  FaJs,
+  FaJava,
+  FaHtml5,
+  FaCss3Alt,
+  FaNodeJs,
+  FaGitAlt,
+  FaGithub,
+  FaUnity,
+} from 'react-icons/fa';
+import { SiTypescript, SiMongodb } from 'react-icons/si';
+import { Tooltip } from 'react-tooltip';
 
 const LanguagesContainer = styled.div`
   display: flex;
-  background-color: inherit;
-  font-size: 70%;
+  gap: 5px;
+  font-size: 1.2em;
 `;
 
 const Card = styled.div`
-  margin: 5px;
-  background-color: #5a5a5a;
-  font-size: 120%;
   display: flex;
-  border: grey solid 1px;
-  border-radius: 6px;
-  padding: 5px;
 `;
+
+const TechIcons = {
+  react: <FaReact color="#61DBFB" />,
+  javascript: <FaJs color="#F0DB4F" />,
+  typescript: <SiTypescript color="#3178C6" />,
+  java: <FaJava color="#007396" />,
+  html5: <FaHtml5 color="#E34F26" />,
+  css: <FaCss3Alt color="#1572B6" />,
+  node: <FaNodeJs color="#339933" />,
+  nodejs: <FaNodeJs color="#339933" />,
+  mongodb: <SiMongodb color="#4DB33D" />,
+  git: <FaGitAlt color="#F05032" />,
+  github: <FaGithub color="#181717" />,
+  unity: <FaUnity color="#000000" />,
+};
 
 export default function TechCard({ languages }) {
   const box = (
     <LanguagesContainer>
       {languages.map((lang, key) => {
-        return <Card key={key}>{lang}</Card>;
+        const icon = TechIcons[lang.toLowerCase()];
+        return (
+          <Card key={key} data-tooltip-id={lang} data-tooltip-content={lang}>
+            <Tooltip id={lang} place="bottom" />
+            {icon && <span style={{ marginRight: '5px' }}>{icon}</span>}
+          </Card>
+        );
       })}
     </LanguagesContainer>
   );

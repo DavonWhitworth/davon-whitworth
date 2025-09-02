@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import React from "react";
-import TechCard from "../techCard";
+import styled from 'styled-components';
+import React from 'react';
+import TechCard from './techCard';
 
 const Card = styled.div`
   color: white;
@@ -14,7 +14,7 @@ const Card = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: inherit;
-  font-family: "Tahoma";
+  font-family: 'Tahoma';
   width: 100%;
 
   max-width: 1000px;
@@ -31,16 +31,19 @@ const Card = styled.div`
 
 const Appinfo = styled.div`
   margin: 5px;
-  padding: 5px;
+  padding: 0px;
   line-height: 1.7;
-  max-width: 530px;
+  max-width: 350px;
   width: auto;
   background-color: inherit;
   @media (min-width: 1000px) {
-    width: 400px;
+    width: 350px;
   }
   @media (max-width: 1010px) {
-    max-width: 350px;
+    max-width: 200px;
+    width: auto;
+    padding: 5px;
+    padding-top: 0px;
   }
 `;
 

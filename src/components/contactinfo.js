@@ -1,11 +1,5 @@
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHomeLg } from "@fortawesome/free-solid-svg-icons";
-import {
-  faDiscord,
-  faLinkedin,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
+import styled from 'styled-components';
+import { FaHome, FaLinkedin, FaGithub, FaDiscord } from 'react-icons/fa';
 
 const Infoblock = styled.div`
   width: fit-content;
@@ -39,21 +33,11 @@ const contactInfo = () => {
   return (
     <Infoblock>
       <Info>
-        <FontAwesomeIcon
-          icon={faHomeLg}
-          color="white"
-          size="1x"
-          position="fixed"
-        />
+        <FaHome color="white" size="1em" />
         &nbsp;&nbsp; Sacramento, Ca
       </Info>
       <Info>
-        <FontAwesomeIcon
-          icon={faLinkedin}
-          color="white"
-          size="1x"
-          position="fixed"
-        />
+        <FaLinkedin color="#0a66c2" size="1em" />
         &nbsp;&nbsp;&nbsp;
         <Linkredirect
           target="_blank"
@@ -63,26 +47,15 @@ const contactInfo = () => {
         </Linkredirect>
       </Info>
       <Info>
-        <FontAwesomeIcon
-          icon={faGithub}
-          color="white"
-          size="1x"
-          position="fixed"
-        />
+        <FaGithub color="grey" size="1em" />
         &nbsp;&nbsp;&nbsp;
         <Linkredirect target="_blank" href="https://github.com/DavonWhitworth">
           GitHub
         </Linkredirect>
       </Info>
       <Info>
-        <FontAwesomeIcon
-          icon={faDiscord}
-          color="white"
-          size="1x"
-          position="fixed"
-          enableBackground={"inherit"}
-        />
-        &nbsp;&nbsp; I Be Dog#0111
+        <FaDiscord color="#7289da" size="1em" />
+        &nbsp;&nbsp; I Be Dog
       </Info>
     </Infoblock>
   );

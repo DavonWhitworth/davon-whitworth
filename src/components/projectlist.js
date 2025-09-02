@@ -1,5 +1,3 @@
-import Projectcard from './projectcard';
-import styled from 'styled-components';
 import PopGif from '../files/popgif.gif';
 import TypingGif from '../files/typinggif.gif';
 import LightGif from '../files/lightgif.gif';
@@ -9,7 +7,7 @@ import LPMGif from '../files/lpmgif.gif';
 export const Projects = [
   {
     title: 'Lyrics Per Minute',
-    languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    languages: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
     description:
       'LPM is an isomorphic Next.js game where up to 5000 players, monthly, practice typing. The front end server-side renders from Netlify edge nodes, and the back end operates with AWS lambda and serverless MongoDB.',
     mediaSrc: LPMGif,
@@ -18,7 +16,7 @@ export const Projects = [
   },
   {
     title: 'Reddit app',
-    languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    languages: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
     description:
       'A minor recreation of the social media app, Reddit, the front page of the internet. This project was a great way for me to practice REST API and global state management for efficiency and cleanliness.',
     mediaSrc: RedditGif,
@@ -27,9 +25,9 @@ export const Projects = [
   },
   {
     title: 'Pop',
-    languages: ['C#'],
+    languages: ['Unity', 'C#'],
     description:
-      'A web game I produced with my 2 brothers. A peaceful top-down shooter which synchronizes the enemy waves with its music track.',
+      'A Unity based web game I produced with my 2 brothers. A peaceful top-down shooter which synchronizes the enemy waves with its music track.',
     mediaSrc: PopGif,
     imagealt: 'Gif of pop',
     link: 'https://gage-langdon.com/pop/',
