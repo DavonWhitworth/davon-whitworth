@@ -15,9 +15,9 @@ const Card = styled.div`
   flex-wrap: wrap;
   background-color: inherit;
   font-family: 'Tahoma';
-  width: 100%;
+  width: auto;
+  justify-self: center;
 
-  max-width: 1000px;
   @media (max-width: 1010px) {
     width: auto;
     max-width: 350px;
@@ -25,7 +25,6 @@ const Card = styled.div`
     margin-right: auto;
     margin-bottom: 40px;
     padding: 12px;
-    border: grey 0.1px solid;
   }
 `;
 
@@ -58,7 +57,7 @@ const Title = styled.a`
 const Description = styled.div`
   margin: 3px;
   line-height: 1.2;
-  width: 100%;
+  width: auto;
   background-color: inherit;
   font-size: 110%;
   color: rgba(255, 255, 255, 0.8);

@@ -13,6 +13,7 @@ import {
 } from 'react-icons/fa';
 import { SiTypescript, SiMongodb } from 'react-icons/si';
 import { Tooltip } from 'react-tooltip';
+import CSharpIcon from '../files/Csharp_Logo.png';
 
 const LanguagesContainer = styled.div`
   display: flex;
@@ -36,7 +37,16 @@ const TechIcons = {
   mongodb: <SiMongodb color="#4DB33D" />,
   git: <FaGitAlt color="#F05032" />,
   github: <FaGithub color="#181717" />,
-  unity: <FaUnity color="#000000" />,
+  unity: <FaUnity color="grey" />,
+  csharp: (
+    <img
+      src={CSharpIcon}
+      alt="C#"
+      width="30px"
+      height="30px"
+      style={{ transform: 'translateY(-1px)' }}
+    />
+  ),
 };
 
 export default function TechCard({ languages }) {

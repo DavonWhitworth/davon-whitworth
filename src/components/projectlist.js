@@ -25,7 +25,7 @@ export const Projects = [
   },
   {
     title: 'Pop',
-    languages: ['Unity', 'C#'],
+    languages: ['Unity', 'Csharp'],
     description:
       'A Unity based web game I produced with my 2 brothers. A peaceful top-down shooter which synchronizes the enemy waves with its music track.',
     mediaSrc: PopGif,
