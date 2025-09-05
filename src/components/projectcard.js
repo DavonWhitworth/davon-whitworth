@@ -9,17 +9,15 @@ const Card = styled.div`
   margin-top: 10px;
   margin-bottom: 20px;
   max-width: 1024px;
-  min-width: fit-content;
-  width: auto;
+  width: fit-content;
   display: flex;
   flex-wrap: wrap;
   background-color: inherit;
   font-family: 'Tahoma';
-  width: auto;
   justify-self: center;
 
   @media (max-width: 1010px) {
-    width: auto;
+    width: fit-content;
     max-width: 350px;
     margin-left: auto;
     margin-right: auto;
@@ -33,14 +31,13 @@ const Appinfo = styled.div`
   padding: 0px;
   line-height: 1.7;
   max-width: 350px;
-  width: auto;
+  width: 100%;
   background-color: inherit;
   @media (min-width: 1000px) {
     width: 350px;
   }
   @media (max-width: 1010px) {
-    max-width: 200px;
-    width: auto;
+    width: 100%;
     padding: 5px;
     padding-top: 0px;
   }
@@ -57,7 +54,7 @@ const Title = styled.a`
 const Description = styled.div`
   margin: 3px;
   line-height: 1.2;
-  width: auto;
+  width: 100%;
   background-color: inherit;
   font-size: 110%;
   color: rgba(255, 255, 255, 0.8);
@@ -65,7 +62,7 @@ const Description = styled.div`
 
 const Projectimg = styled.img`
   max-width: 350px;
-  width: 100%;
+  width: auto;
   border-radius: 10px;
 `;
 
