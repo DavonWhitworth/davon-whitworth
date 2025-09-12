@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { FaHome, FaLinkedin, FaGithub, FaDiscord } from 'react-icons/fa';
+import BearIcon from '../files/CaFlagBear.png';
+import { Tooltip } from 'react-tooltip';
 
 const Infoblock = styled.div`
   width: fit-content;
@@ -33,8 +35,27 @@ const contactInfo = () => {
   return (
     <Infoblock>
       <Info>
-        <FaHome color="white" size="1em" />
-        &nbsp;&nbsp; Sacramento, Ca
+        <FaHome color="#BD8A5E" size="1em" />
+        &nbsp;&nbsp; Sacramento, Ca &nbsp;
+        <img
+          src={BearIcon}
+          alt="Bear Icon"
+          width="31px"
+          data-tooltip-id="bear-icon"
+          data-tooltip-content="It's a fake bear, don't pepper spray it!"
+        />
+        <Tooltip
+          id="bear-icon"
+          place="top"
+          style={{
+            fontSize: '0.8em',
+            padding: '4px 8px',
+            backgroundColor: '#333',
+            color: 'white',
+            borderRadius: '4px',
+            zIndex: 1000,
+          }}
+        />
       </Info>
       <Info>
         <FaLinkedin color="#0a66c2" size="1em" />

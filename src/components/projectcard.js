@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import TechCard from './techCard';
 
 const Card = styled.div`
@@ -51,6 +52,12 @@ const Title = styled.a`
   text-decoration: none;
 `;
 
+const DocumentationRedirect = styled(Link)`
+  margin: 3px;
+  background-color: inherit;
+  text-decoration: underline;
+`;
+
 const Description = styled.div`
   margin: 3px;
   line-height: 1.2;
@@ -71,18 +78,26 @@ function projectcard({
   languages,
   title,
   mediaSrc,
-  link,
+  url,
   imagealt,
+  page,
 }) {
+  console.log(url);
   return (
     <>
       <Card>
         <Projectimg src={mediaSrc} alt={imagealt} />
 
         <Appinfo>
-          <Title target="_blank" href={link}>
+          <Title target="_blank" rel="noopener noreferrer" href={url}>
             {title}
           </Title>
+          <br />
+          {page && (
+            <DocumentationRedirect to={page}>
+              See the Documentation
+            </DocumentationRedirect>
+          )}
           <TechCard languages={languages} />
           <Description>{description} </Description>
         </Appinfo>
