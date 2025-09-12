@@ -13,7 +13,7 @@ const Card = styled.div`
   width: fit-content;
   display: flex;
   flex-wrap: wrap;
-  background-color: inherit;
+  background-color: rgb(34, 32, 32);
   font-family: 'Tahoma';
   justify-self: center;
 
@@ -24,6 +24,16 @@ const Card = styled.div`
     margin-right: auto;
     margin-bottom: 40px;
     padding: 12px;
+  }
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+  will-change: transform;
+
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
 `;
 

@@ -7,11 +7,17 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaNodeJs,
-  FaGitAlt,
-  FaGithub,
   FaUnity,
 } from 'react-icons/fa';
-import { SiTypescript, SiMongodb } from 'react-icons/si';
+import {
+  SiTypescript,
+  SiMongodb,
+  SiVite,
+  SiNextdotjs,
+  SiCypress,
+  SiGraphql,
+  SiAmazon,
+} from 'react-icons/si';
 import { Tooltip } from 'react-tooltip';
 import CSharpIcon from '../files/Csharp_Logo.png';
 
@@ -24,17 +30,23 @@ const LanguagesContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
+  background-color: transparent;
 `;
 
-const Card = styled.div`
-  display: flex;
-  align-items: center;
+const Card = styled.span`
   font-size: clamp(20px, 2.5vw, 30px);
+  background-color: transparent;
 `;
 
-const IconWrapper = styled.span`
+const IconWrapper = styled.div`
   display: flex;
   align-items: center;
+  background-color: transparent;
+
+  & svg,
+  & img {
+    background-color: transparent;
+  }
 `;
 
 const CSharpIconWrapper = styled.img`
@@ -50,13 +62,15 @@ const TechIcons = {
   java: <FaJava size={ICON_SIZE} color="#007396" />,
   html5: <FaHtml5 size={ICON_SIZE} color="#E34F26" />,
   css: <FaCss3Alt size={ICON_SIZE} color="#1572B6" />,
-  node: <FaNodeJs size={ICON_SIZE} color="#339933" />,
   nodejs: <FaNodeJs size={ICON_SIZE} color="#339933" />,
   mongodb: <SiMongodb size={ICON_SIZE} color="#4DB33D" />,
-  git: <FaGitAlt size={ICON_SIZE} color="#F05032" />,
-  github: <FaGithub size={ICON_SIZE} color="#181717" />,
   unity: <FaUnity size={ICON_SIZE} color="grey" />,
   csharp: <CSharpIconWrapper src={CSharpIcon} alt="C#" />,
+  vite: <SiVite size={ICON_SIZE} color="#646CFF" />,
+  nextjs: <SiNextdotjs size={ICON_SIZE} color="#000000" />,
+  cypress: <SiCypress size={ICON_SIZE} color="#00BFA5" />,
+  graphql: <SiGraphql size={ICON_SIZE} color="#E535AB" />,
+  aws: <SiAmazon size={ICON_SIZE} color="#FF9900" />,
 };
 
 export default function TechCard({ languages }) {

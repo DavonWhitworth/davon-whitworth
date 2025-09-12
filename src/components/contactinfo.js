@@ -6,7 +6,7 @@ import { Tooltip } from 'react-tooltip';
 const Infoblock = styled.div`
   width: fit-content;
   max-width: 220px;
-  background-color: #171717;
+  background-color: rgb(34, 32, 32);
   color: white;
   border-radius: 6px;
   padding: 15px;
@@ -29,6 +29,11 @@ const Info = styled.div`
   background-color: inherit;
   padding: 5px;
   text-align: left;
+
+  & svg,
+  & img {
+    background-color: transparent;
+  }
 `;
 
 const contactInfo = () => {

@@ -17,6 +17,7 @@ export const Projects = [
       'JavaScript',
       'HTML',
       'CSS',
+      'cypress',
       'MongoDB',
       'AWS',
     ],
@@ -31,18 +32,26 @@ export const Projects = [
 
   {
     title: 'Lyrics Per Minute',
-    languages: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'MongoDB'],
+    languages: [
+      'React',
+      'TypeScript',
+      'JavaScript',
+      'HTML',
+      'CSS',
+      'MongoDB',
+      'nodejs',
+    ],
     description:
       'LPM was an isomorphic Next.js typing game, server-rendered from Netlify edge nodes with an AWS Lambda + MongoDB backend. After 1.4M matches and 68K players since March 2020, the app closed on March 31, 2025 due to rising hosting costs. ',
     mediaSrc: LPMGif,
     imagealt: 'Gif of lyrics per minute',
     url: 'https://lyricsperminute.com',
     status: 'closed',
-    page: '/lyricsperminute',
+    page: undefined, //'/lyricsperminute'
   },
   {
     title: 'KB Jewels',
-    languages: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    languages: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS'],
     description:
       'A modern, responsive website for KB Jewels, a premium custom jeweler with an international clientele. Built with Next.js 15, TypeScript, and Material-UI, it features elegant animations, reCAPTCHA-protected contact forms, and SEO optimization to showcase bespoke collections with a luxury brand aesthetic.',
     mediaSrc: KBJewelsImg,
@@ -53,18 +62,26 @@ export const Projects = [
   },
   {
     title: 'Player Club Managment',
-    languages: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'MongoDB'],
+    languages: [
+      'React',
+      'Vite',
+      'TypeScript',
+      'JavaScript',
+      'HTML5',
+      'CSS',
+      'MongoDB',
+    ],
     description:
       'Final project for a web development course: a responsive website for a local agency entering the NIL athlete space. Built features for creating custom athlete profiles and tools to connect athletes with potential sponsors.',
     mediaSrc: notavailable,
     imagealt: 'Gif of studio vault',
-    url: 'https://kb-jewels.com/',
+    url: undefined,
     status: 'live',
     page: undefined,
   },
   {
     title: 'Reddit app',
-    languages: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    languages: ['React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS'],
     description:
       'A lightweight Reddit client that fetches JSON data directly from subreddit URLs and dynamically renders posts. Built to practice REST API integration and global state management.',
     mediaSrc: RedditGif,
@@ -97,7 +114,7 @@ export const Projects = [
   },
   {
     title: 'Vocabulary Typing Test',
-    languages: ['JavaScript', 'HTML', 'CSS'],
+    languages: ['JavaScript', 'HTML5', 'CSS'],
     description:
       'A typing practice app that generates text from a dictionary API, helping users improve speed and vocabulary. Tracks net WPM and averages in real time after each word.',
     mediaSrc: TypingGif,
@@ -108,7 +125,7 @@ export const Projects = [
   },
   {
     title: 'Light Sight',
-    languages: ['JavaScript', 'HTML', 'CSS'],
+    languages: ['JavaScript', 'HTML5', 'CSS'],
     description:
       'A web app with color controls that change the background, letting users illuminate their space with the hue of their choice.',
     mediaSrc: LightGif,
