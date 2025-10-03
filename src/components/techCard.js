@@ -21,7 +21,6 @@ import {
 import { Tooltip } from 'react-tooltip';
 import CSharpIcon from '../files/Csharp_Logo.png';
 
-// Single size constant for all icons
 const ICON_SIZE = '1em';
 
 const LanguagesContainer = styled.div`

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaHome, FaLinkedin, FaGithub, FaDiscord } from 'react-icons/fa';
+import { FaHome, FaLinkedin, FaGithub } from 'react-icons/fa';
 import BearIcon from '../files/CaFlagBear.png';
 import { Tooltip } from 'react-tooltip';
 
@@ -79,10 +79,7 @@ const contactInfo = () => {
           GitHub
         </Linkredirect>
       </Info>
-      <Info>
-        <FaDiscord color="#7289da" size="1em" />
-        &nbsp;&nbsp; I Be Dog
-      </Info>
+
     </Infoblock>
   );
 };

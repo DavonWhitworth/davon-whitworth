@@ -1,3 +1,9 @@
+/**
+ *
+ * Looking for job sliding banner
+ *
+ */
+
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
