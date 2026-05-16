@@ -92,11 +92,10 @@ function projectcard({
   imagealt,
   page,
 }) {
-  console.log(url);
   return (
     <>
       <Card>
-        <Projectimg src={mediaSrc} alt={imagealt} />
+        {mediaSrc && <Projectimg src={mediaSrc} alt={imagealt} />}
 
         <Appinfo>
           <Title target="_blank" rel="noopener noreferrer" href={url}>

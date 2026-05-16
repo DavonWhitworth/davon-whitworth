@@ -7,10 +7,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from '../components/projectcard';
 import styled from 'styled-components';
-import { Button } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import HomeIcon from '@mui/icons-material/Home';
-import { Link } from 'react-router-dom';
 import NavBar from '../components/navBar';
 
 const SecretProjectsHeader = styled.div`
@@ -49,28 +45,6 @@ const CardAnimation = () => {
     <>
       <NavBar />
       <div>
-        <>
-          {/* Back to Projects (or any page you choose) */}
-          <Button
-            component={Link}
-            to="/projects" // change to the route you want
-            variant="outlined"
-            startIcon={<ArrowBackIcon />}
-            sx={{ mr: 2 }}
-          >
-            Back
-          </Button>
-
-          {/* Go Home */}
-          <Button
-            component={Link}
-            to="/" // your homepage route
-            variant="contained"
-            startIcon={<HomeIcon />}
-          >
-            Home
-          </Button>
-        </>
         <SecretProjectsHeader>
           {secretProjectsPageText.introduction}
         </SecretProjectsHeader>

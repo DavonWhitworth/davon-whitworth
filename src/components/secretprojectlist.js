@@ -1,6 +1,6 @@
 export const secretProjectsPageText = {
   introduction:
-    'Congratulation! You have found my secret list of projects. Here I talk about story projects and silly ideas that have contributed to my experiences as a developer but are not serious enough for the main page. I hope you enjoy as much as me.',
+    'Congratulation! You have found my secret list of projects. Here I talk about my projects with a story and silly ideas that have contributed to my experiences as a developer but are not serious enough for the main page. I hope you enjoy as much as I did making them.',
   meetMyGirlFriend:
     'Meet my high school sweetheart and love of my life, Jennifer <3. The only reason I need to be the best version of myself.',
 };
@@ -22,7 +22,7 @@ export const secretProjects = [
     title: 'Is It Water?',
     languages: ['React', 'JavaScript', 'HTML', 'CSS'],
     description:
-      "One of my CS course finals at Sierra College was to create a GUI using an API. I had an amazingly simple idea...put input coordinates and be told wheather it is water or not water. One of my brothers, Camryn, for this project made a GUI that would convert USD into all major currencies but he did't even loop through a map to develop it faster. He did every currency manually and plugged in each exchange rate from the API with individual variables. He was butthurt that I got full points for significaly less work, all our friends praise it. :) ",
+      "One of my CS course finals at Sierra College was to create a GUI using an API, yep those were the only conditions. I had an amazingly simple idea...input coordinates and be told wheather it is water or not water. One of my brothers, Camryn, for this project made a GUI that would convert USD into all major currencies but he did't map through the list. He did every currency manually and plugged in each exchange rate from the API with individual variables. He was butthurt that I got full points for significaly less work, all our friends praise it. :)",
     // mediaSrc: StudioVaultImg,
     imagealt: 'Water or not water',
     url: 'http://localhost:3000/waterornotwater',

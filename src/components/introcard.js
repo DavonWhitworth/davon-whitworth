@@ -53,7 +53,7 @@ const PortraitWrapper = styled.div`
 `;
 
 // Make the styled image motion-capable
-const MotionPortraitImg = motion(PortaitImg);
+const MotionPortraitImg = motion.create(PortaitImg);
 
 const introCard = ({ infoVisible }) => {
   return (

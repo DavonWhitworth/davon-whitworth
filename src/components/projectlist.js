@@ -56,7 +56,6 @@ export const Projects = [
       'A modern, responsive website for KB Jewels, a premium custom jeweler with an international clientele. Built with Next.js 15, TypeScript, and Material-UI, it features elegant animations, reCAPTCHA-protected contact forms, and SEO optimization to showcase bespoke collections with a luxury brand aesthetic.',
     mediaSrc: KBJewelsImg,
     imagealt: 'Gif of studio vault',
-    url: 'https://kb-jewels.com/',
     status: 'live',
     page: undefined,
   },

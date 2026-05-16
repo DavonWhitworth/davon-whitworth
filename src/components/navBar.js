@@ -7,7 +7,6 @@ const NavBarContainer = styled.header`
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(10, 12, 28, 0.9);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 `;

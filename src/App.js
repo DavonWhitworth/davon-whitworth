@@ -10,11 +10,10 @@ import './App.css';
 
 //Primary Projects - Not Secret
 import HomePage from './pages/HomePage';
-// import LyricsPerMinute from './pages/lyricsperminute'; //Lyrics Per Minute
 
 //Secondary Projects - "Secret"
 import SecretProjects from './pages/SecretProjects';
-import CanIHaveMyPhone from './pages/canihavemyphone'; //Can I Have My Phone
+import CanIHaveMyPhone from './pages/canihavemyphone';
 
 const App = () => {
   return (
@@ -27,7 +26,6 @@ const App = () => {
           path="/SecretProjects/CanIHaveMyPhone"
           element={<CanIHaveMyPhone />}
         />
-        {/* Add more routes as you create documentation pages */}
       </Routes>
     </Router>
   );
