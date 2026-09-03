@@ -94,7 +94,7 @@ const introCard = ({ infoVisible }) => {
               exit={{ opacity: 0, scale: 0 }}
               transition={{ duration: 1 }}
             >
-              <Namediv>Davon Whitworth</Namediv>
+              <Namediv>Davon Austin Whitworth</Namediv>
               <Titlediv>Full-Stack Web Developer</Titlediv>
             </motion.div>
           </Infodiv>
