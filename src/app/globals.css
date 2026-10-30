@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+  Design tokens. Change a value here and the whole site follows.
+  Each --color-* token becomes utilities such as bg-bg, text-fg, border-border.
+  The palette is a soft dark theme: no pure black, no pure white.
+*/
+@theme {
+  /* Surfaces */
+  --color-bg: #1c1c1c;
+  --color-surface: #242424;
+  --color-surface-2: #2d2d2d;
+  --color-border: #3b3b3b;
+
+  /* Text */
+  --color-fg: #e6e2d9;
+  --color-muted: #a29f97;
+
+  /* Accent (soft sage) */
+  --color-accent: #94b8a6;
+  --color-accent-strong: #aecfbd;
+  --color-accent-contrast: #1c1c1c;
+
+  /* Project status badges */
+  --color-status-live: #94b8a6;
+  --color-status-external: #9aa9c4;
+  --color-status-archived: #b8a994;
+  --color-status-planned: #a29f97;
+
+  /* Type */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Shape */
+  --radius-card: 0.75rem;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Documentation pages: map the typography plugin onto the tokens above. */
+.docs-prose {
+  --tw-prose-body: var(--color-fg);
+  --tw-prose-headings: var(--color-fg);
+  --tw-prose-lead: var(--color-muted);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-fg);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-muted);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-quotes: var(--color-fg);
+  --tw-prose-quote-borders: var(--color-border);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-code: var(--color-fg);
+  --tw-prose-pre-code: var(--color-fg);
+  --tw-prose-pre-bg: var(--color-surface);
+  --tw-prose-th-borders: var(--color-border);
+  --tw-prose-td-borders: var(--color-border);
+}
+
+/* Headings are wrapped in a link by rehype-autolink-headings. */
+.docs-prose .heading-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.docs-prose .heading-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+}
