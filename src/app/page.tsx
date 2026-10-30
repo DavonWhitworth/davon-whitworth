@@ -53,9 +53,6 @@ export default function HomePage() {
         <p className="mt-3 text-xl text-accent">{profile.headline}</p>
         <p className="mt-6 max-w-2xl text-muted">{profile.intro}</p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/#projects" className={buttonPrimary}>
-            View projects
-          </Link>
           <Link href="/#contact" className={buttonSecondary}>
             Get in touch
           </Link>
@@ -66,6 +63,10 @@ export default function HomePage() {
           ) : null}
         </div>
       </section>
+
+      <Section id="projects" title="Projects">
+        <ProjectList projects={projects} />
+      </Section>
 
       <Section id="technologies" title="Technologies">
         <div className="space-y-6">
@@ -81,10 +82,6 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </Section>
-
-      <Section id="projects" title="Projects">
-        <ProjectList projects={projects} />
       </Section>
 
       <Section id="contact" title="Contact">
