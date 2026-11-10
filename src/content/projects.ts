@@ -91,8 +91,8 @@ export const projects: readonly Project[] = [
     slug: "reddit-content-viewer",
     title: "Reddit Content Viewer",
     summary:
-      "Browse Reddit content using the public JSON data available on Reddit URLs.",
-    status: "planned",
+      "A custom Reddit browsing interface built on the public JSON data available on Reddit URLs. It no longer works: Reddit's new rules no longer allow unauthenticated access to that data.",
+    status: "archived",
     stack: ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
   },
   {
