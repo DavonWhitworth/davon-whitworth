@@ -37,6 +37,12 @@
 
   /* Shape */
   --radius-card: 0.75rem;
+
+  /* Vocabulary typing test: gold on near-black, as in the original app */
+  --color-typing-bg: rgb(10 10 10);
+  --color-typing-gold: #ffcc33;
+  --color-typing-done: #ffff00;
+  --color-typing-wrong: #ff5a5a;
 }
 
 :root {
@@ -93,4 +99,17 @@ body {
 .docs-prose .heading-link:hover {
   text-decoration: underline;
   text-decoration-color: var(--color-accent);
+}
+
+/* Brief red flash on the active character after a wrong key. */
+@keyframes wrong-flash {
+  0%,
+  100% {
+    outline-color: #fff;
+    color: var(--color-typing-gold);
+  }
+  35% {
+    outline-color: var(--color-typing-wrong);
+    color: var(--color-typing-wrong);
+  }
 }

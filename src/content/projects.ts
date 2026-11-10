@@ -99,9 +99,10 @@ export const projects: readonly Project[] = [
     slug: "vocabulary-typing-test",
     title: "Vocabulary Typing Test",
     summary:
-      "A frontend-only typing test built around vocabulary words. Being rebuilt for this site.",
-    status: "planned",
+      "Type out dictionary definitions and see your words per minute. Runs right here on this site.",
+    status: "live",
     stack: ["JavaScript", "HTML", "CSS"],
+    hasApp: true,
   },
   {
     slug: "light-sight",
