@@ -106,8 +106,9 @@ export const projects: readonly Project[] = [
   {
     slug: "light-sight",
     title: "Light Sight",
-    summary: "A small frontend application. Being rebuilt for this site.",
-    status: "planned",
+    summary:
+      "Turns your screen into a simple colored light. Runs right here on this site.",
+    status: "live",
     stack: ["JavaScript", "HTML", "CSS"],
     hasApp: true,
   },

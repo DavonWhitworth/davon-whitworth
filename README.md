@@ -36,9 +36,10 @@ Root URLs are shared by every app, so avoid slugs that collide with real routes 
 ```
 src/
   app/
-    page.tsx                Landing page
-    projects/[slug]/        Project page = documentation
-    (apps)/<slug>/          The app itself at /<slug> (the group adds no URL segment)
+    (site)/                 Pages with the header and footer (SiteShell)
+      page.tsx              Landing page
+      projects/[slug]/      Project page = documentation
+    (apps)/<slug>/          Apps at /<slug>, full screen: no header or footer
     api/contact/            Contact form endpoint
     sitemap.ts, robots.ts   SEO
   components/     Shared UI

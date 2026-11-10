@@ -62,7 +62,6 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
 /* Documentation pages: map the typography plugin onto the tokens above. */
