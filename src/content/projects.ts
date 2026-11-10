@@ -29,6 +29,8 @@ export interface Project {
    * exists elsewhere). The project page shows a button that opens it in a new tab.
    */
   externalUrl?: string;
+  /** Text of the button that opens externalUrl, e.g. "Go To Studio Vault". */
+  externalLabel?: string;
   /** The app itself runs on this site at /<slug>. */
   hasApp?: boolean;
 }
@@ -41,8 +43,8 @@ export const projects: readonly Project[] = [
     summary: "My main day-to-day project. It runs on its own domain.",
     status: "external",
     stack: ["React", "TypeScript", "JavaScript", "HTML", "CSS", "Cypress", "MongoDB", "AWS", "Google OAuth"],
-    // TODO: add the Studio Vault address, e.g. "https://studiovault.example".
-    externalUrl: undefined,
+    externalUrl: "https://studiovaultbeta.com/login",
+    externalLabel: "Go To Studio Vault",
   },
   {
     slug: "lyrics-per-minute",
@@ -51,8 +53,8 @@ export const projects: readonly Project[] = [
       "A previously hosted app that was shut down to save on operating costs. An archive page still shows the analysis it produced.",
     status: "archived",
     stack: ["React", "TypeScript", "JavaScript", "Node.js", "MongoDB", "HTML", "CSS"],
-    // TODO: add the address of the archive page that is still up.
-    externalUrl: undefined,
+    externalUrl: "https://lyricsperminute.com/",
+    externalLabel: "Go To Lyrics Per Minute",
   },
   {
     slug: "kb-jewels",
@@ -61,6 +63,29 @@ export const projects: readonly Project[] = [
       "A jewelry site I built for a friend's company. It is currently offline.",
     status: "archived",
     stack: ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    slug: "player-club-management",
+    title: "Player Club Management",
+    summary: "A university course project. It is no longer live.",
+    status: "archived",
+    stack: ["React", "Vite", "TypeScript", "JavaScript", "Node.js", "Express", "Firebase", "MongoDB", "HTML", "CSS"],
+  },
+  {
+    slug: "pop",
+    title: "Pop",
+    summary:
+      "A game made with Unity. The browser build will be playable here on desktop.",
+    status: "archived",
+    stack: ["Unity", "C#"],
+  },
+  {
+    slug: "2d-runner",
+    title: "2D Runner",
+    summary:
+      "A 2D runner game made with Unity. The browser build will be playable here on desktop.",
+    status: "planned",
+    stack: ["Unity", "C#"],
   },
   {
     slug: "reddit-content-viewer",
@@ -85,29 +110,6 @@ export const projects: readonly Project[] = [
     status: "planned",
     stack: ["JavaScript", "HTML", "CSS"],
     hasApp: true,
-  },
-  {
-    slug: "pop",
-    title: "Pop",
-    summary:
-      "A game made with Unity. The browser build will be playable here on desktop.",
-    status: "planned",
-    stack: ["Unity", "C#"],
-  },
-  {
-    slug: "2d-runner",
-    title: "2D Runner",
-    summary:
-      "A 2D runner game made with Unity. The browser build will be playable here on desktop.",
-    status: "planned",
-    stack: ["Unity", "C#"],
-  },
-  {
-    slug: "player-club-management",
-    title: "Player Club Management",
-    summary: "A university course project. It is no longer live.",
-    status: "archived",
-    stack: ["React", "Vite", "TypeScript", "JavaScript", "MongoDB", "HTML", "CSS"],
   },
 ];
 

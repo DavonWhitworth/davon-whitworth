@@ -1,13 +1,9 @@
-// Text for the landing page. Edit freely; nothing here is imported by backend code.
+// Text for the landing page.
 export const profile = {
   headline:
     "Software developer building full-stack web applications with React, TypeScript and MongoDB.",
-  // TODO: two or three sentences about you and what you are working toward.
   intro:
-    "Replace this paragraph with a short introduction: who you are, what you build, and what kind of work you are looking for.",
-
-  // Plain lists of technologies I have used. Projects are not split by category
-  // because they are all part of the same growth as a developer.
+"I'm Austin Whitworth, a Computer Science student at Sacramento State and full-stack software developer building web applications and SaaS platforms. I focus on creating reliable, efficient software with intuitive user experiences. I'm seeking software engineering internships and early-career opportunities where I can contribute to meaningful products and expand my engineering experience.",
   technologies: [
     {
       title: "Day to day",

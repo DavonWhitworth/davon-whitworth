@@ -1,32 +1,9 @@
 ---
 title: Reddit Content Viewer
-description: Sample documentation page. Replace this with how the viewer works and how it is built.
-updated: "2026-10-29"
+description: "redditapp is a custom Reddit browsing interface that retrieves public Reddit feeds and presents them in a more structured, application-style layout."
+updated: "2026-11-09"
 ---
 
-This is a sample page that shows how documentation renders. Delete or rewrite it once you have real content.
+redditapp is a custom Reddit browsing interface that retrieves public Reddit feeds and presents them in a more structured, application-style layout. Users can browse general Reddit content or subreddit feeds, change sorting options and time ranges, open individual posts, and view comments and media. The application keeps the current page, subreddit, sort settings, and selected post in shared application state.
 
-## Overview
-
-Say what the project does in two or three sentences, and who it is for.
-
-## How it works
-
-The viewer reads the public JSON data that Reddit exposes on its URLs. Describe the flow here: what the browser asks for, what the server does, and what comes back.
-
-### Data source
-
-Name the endpoints you use and any limits you run into.
-
-### Server side
-
-If the project has its own backend code, explain what lives in `src/features/reddit-content-viewer/server` and what the API route does.
-
-## Decisions and trade-offs
-
-- Write one bullet per decision you want a reader to understand.
-- Short pages are fine. Large projects can use as many `##` sections as they need.
-
-## Notes
-
-Headings written as `##` and `###` appear in the table of contents at the top of the page automatically.
+The project uses React with Create React App and React Context to share feed and navigation state across components. Axios sends requests directly to Reddit’s JSON endpoints, while components render loading states, post cards, comments, media, and subreddit selection dialogs. Chakra UI and Ant Design provide interface components and layout utilities, while Styled Components and Emotion support styling. Framer Motion is included for interface animation, and media libraries support embedded video and other post content.

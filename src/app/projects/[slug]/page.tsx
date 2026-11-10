@@ -90,9 +90,10 @@ export default async function ProjectPage({
                 rel="noopener noreferrer"
                 className={actionClass}
               >
-                {project.status === "archived"
-                  ? "View archive page"
-                  : `Visit ${project.title}`}
+                {project.externalLabel ??
+                  (project.status === "archived"
+                    ? "View archive page"
+                    : `Visit ${project.title}`)}
                 <span aria-hidden="true"> &#8599;</span>
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
