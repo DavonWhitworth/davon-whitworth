@@ -75,9 +75,10 @@ export const projects: readonly Project[] = [
     slug: "pop",
     title: "Pop",
     summary:
-      "A game made with Unity. The browser build will be playable here on desktop.",
-    status: "planned",
+      "A top-down arcade shooter made with Unity and C#. Playable right here on this site, on desktop.",
+    status: "live",
     stack: ["Unity", "C#"],
+    hasApp: true,
   },
   {
     slug: "2d-runner",
