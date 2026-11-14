@@ -40,7 +40,7 @@ export const projects: readonly Project[] = [
     slug: "studio-vault",
     title: "Studio Vault",
     // TODO: describe what Studio Vault does.
-    summary: "My main day-to-day project. It runs on its own domain.",
+    summary: "Studio Vault is a cloud-based music production service that allows you to organize, save versions, and collaborate with others on music projects across multiple digital audio workstations. It also has supports further collaboration with a kanban board and a free market for creator to share free to use blueprints.",
     status: "external",
     stack: ["React", "TypeScript", "JavaScript", "HTML", "CSS", "Cypress", "MongoDB", "AWS", "Google OAuth"],
     externalUrl: "https://studiovaultbeta.com/login",
@@ -76,16 +76,17 @@ export const projects: readonly Project[] = [
     title: "Pop",
     summary:
       "A game made with Unity. The browser build will be playable here on desktop.",
-    status: "archived",
+    status: "planned",
     stack: ["Unity", "C#"],
   },
   {
     slug: "2d-runner",
     title: "2D Runner",
     summary:
-      "A 2D runner game made with Unity. The browser build will be playable here on desktop.",
-    status: "planned",
+      "A 2D game made with Unity and C#. Playable right here on this site, on desktop.",
+    status: "live",
     stack: ["Unity", "C#"],
+    hasApp: true,
   },
   {
     slug: "reddit-content-viewer",
