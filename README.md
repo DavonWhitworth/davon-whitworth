@@ -63,7 +63,10 @@ Boundary rules (ESLint): a feature never imports from another feature or from `s
 
 1. Push the repo to GitHub and import it in Netlify (it detects Next.js).
 2. Add the variables from `.env.example` under Site configuration > Environment variables, and set `NEXT_PUBLIC_SITE_URL` to your real domain.
-3. For the contact form, create a Resend account, verify a sending domain, and create a Cloudflare Turnstile widget.
+3. For the contact form, create a Brevo account, verify a sender or sending domain, generate an API key, and create a Cloudflare Turnstile widget.
+4. In Brevo > Security > Authorized IPs, deactivate IP blocking for API keys (Netlify's server addresses change).
+
+`netlify/functions/brevo-keepalive.mts` is a scheduled function that emails you once a month. Brevo API keys expire after 90 days without use, so this keeps the key alive and tells you if sending ever breaks. It runs only on the published deploy; check it under Functions in Netlify.
 
 ## Not included yet
 

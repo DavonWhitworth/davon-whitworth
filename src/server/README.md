@@ -5,7 +5,7 @@ Code here is the centralized backend that every project can use. It only runs on
 Current contents:
 
 - `env.ts` validated environment variables
-- `email.ts` sending mail through Resend
+- `email.ts` sending mail through Brevo
 - `turnstile.ts` Cloudflare Turnstile verification
 - `rate-limit.ts` simple in-memory rate limiting
 - `docs.ts` reads and renders the Markdown documentation
