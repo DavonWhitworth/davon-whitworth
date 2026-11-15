@@ -3,3 +3,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Tells Netlify to deploy the Next.js output (pages, server code, images)
+# with its Next.js runtime. Without this the build succeeds but nothing
+# is published and the site shows Netlify's 404 page.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
