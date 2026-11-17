@@ -43,6 +43,12 @@ export default function PrivacyPage() {
         password and does not ask for access to anything beyond your basic
         profile.
       </p>
+      <p className={paragraph}>
+        Because sign-in runs through Supabase, the address Google shows on its
+        sign-in screen and in its security email may be a long supabase.co
+        address instead of davon-whitworth.com. That is expected and is part of
+        this site.
+      </p>
 
       <h2 className={heading}>Project data</h2>
       <p className={paragraph}>

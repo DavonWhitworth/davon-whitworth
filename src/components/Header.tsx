@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AuthButton } from "@/components/auth/AuthButton";
 import { site } from "@/content/site";
 
 export function Header() {
@@ -19,6 +20,9 @@ export function Header() {
               <Link href="/#contact" className="hover:text-fg">
                 Contact
               </Link>
+            </li>
+            <li>
+              <AuthButton />
             </li>
           </ul>
         </nav>
