@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 
 export function Footer() {
@@ -8,6 +9,11 @@ export function Footer() {
           &copy; {new Date().getFullYear()} {site.name}
         </p>
         <ul className="flex gap-6">
+          <li>
+            <Link href="/privacy" className="hover:text-fg">
+              Privacy
+            </Link>
+          </li>
           <li>
             <a
               href={site.social.github}

@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: `${site.url}/` },
+    { url: `${site.url}/privacy` },
     ...live.map((project) => ({ url: `${site.url}/projects/${project.slug}` })),
   ];
 }
