@@ -18,6 +18,9 @@ const schema = z.object({
   CONTACT_TO_EMAIL: optionalEmail,
   CONTACT_FROM_EMAIL: optionalEmail,
   TURNSTILE_SECRET_KEY: optionalString,
+  // Supabase "secret" key: full database access, bypasses row level security.
+  // Server only; never in a NEXT_PUBLIC_ variable.
+  SUPABASE_SECRET_KEY: optionalString,
 });
 
 export type ServerEnv = z.infer<typeof schema>;

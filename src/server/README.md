@@ -9,10 +9,14 @@ Current contents:
 - `turnstile.ts` Cloudflare Turnstile verification
 - `rate-limit.ts` simple in-memory rate limiting
 - `docs.ts` reads and renders the Markdown documentation
+- `supabase.ts` Supabase client that acts as the signed-in visitor (reads their session cookies)
+- `supabase-admin.ts` Supabase client with the secret key (bypasses row level security; use only after checking the caller)
+- `caller.ts` `getCaller()`: who is making this request (user id, admin, blocked), confirmed with Supabase
+
+Sign-in sessions are refreshed by `getCaller()` inside route handlers, so there is no proxy (middleware). Add one only if Server Components need to read the signed-in user.
 
 Planned, added when the first project needs them:
 
-- `auth/` Auth.js with Google sign-in (shared by every project that has accounts)
 - `db/` shared database clients (MongoDB first, SQL later), created once and reused
 
 Code in this folder must never import from `@/features` or `@/app`.
