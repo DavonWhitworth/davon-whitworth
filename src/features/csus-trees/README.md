@@ -8,8 +8,15 @@ src/features/csus-trees/
   server/rows.ts   database row types and row -> API mappers (server only)
   server/db.ts     database queries (admin client; callers check access first)
   server/api.ts    request handling for the API routes
-  ui/              (to come) map and add flow
+  ui/CsusTreesApp.tsx   the page: full-screen map, locate button, Add button
+  ui/TreeMap.tsx        MapLibre map (OpenFreeMap tiles), clustered trees, "you are here" dot
+  ui/AddTreeModal.tsx   number, species and location; handles the 409 "is this the tree you meant?"
+  ui/SpeciesPicker.tsx  search-as-you-type species combobox
+  ui/hooks.ts           useUserLocation (precise GPS), useSignedIn, useIsTouchDevice
+  ui/api.ts             browser calls to the API
 ```
+
+The app is at `/csus-trees` (`src/app/(apps)/csus-trees/page.tsx`); its documentation is `src/content/docs/csus-trees.md`. MapLibre 6 needs its worker script served by the site: `scripts/copy-maplibre-worker.mjs` copies it to `public/vendor/` before `pnpm dev` and `pnpm build`.
 
 Database: `supabase/migrations/0002_trees.sql`.
 

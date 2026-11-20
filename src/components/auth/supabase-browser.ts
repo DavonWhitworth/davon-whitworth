@@ -20,3 +20,16 @@ export function getSupabaseBrowser(): SupabaseClient | null {
   client = url && key ? createBrowserClient(url, key) : null;
   return client;
 }
+
+/** Start Google sign-in, then come back to the current page. */
+export async function signInWithGoogle(): Promise<void> {
+  const supabase = getSupabaseBrowser();
+  if (!supabase) return;
+  const next = window.location.pathname + window.location.search;
+  await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+    },
+  });
+}

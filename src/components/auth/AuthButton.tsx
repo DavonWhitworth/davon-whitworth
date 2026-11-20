@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { User } from "@supabase/supabase-js";
-import { getSupabaseBrowser } from "./supabase-browser";
+import { getSupabaseBrowser, signInWithGoogle } from "./supabase-browser";
 
 // Small sign-in control for the header corner.
 // Signed out: a person icon that starts Google sign-in.
@@ -73,14 +73,7 @@ export function AuthButton() {
   }
 
   async function signIn() {
-    if (!supabase) return;
-    const next = window.location.pathname + window.location.search;
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
-      },
-    });
+    await signInWithGoogle();
   }
 
   async function signOut() {

@@ -37,6 +37,15 @@ export interface Project {
 
 export const projects: readonly Project[] = [
   {
+    slug: "csus-trees",
+    title: "CSUS-Trees",
+    summary:
+      "A crowd-sourced map of the trees on the Sacramento State campus. Anyone can browse it; signed-in visitors add trees by the number on their tag, and the map combines everyone's entries.",
+    status: "live",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "MapLibre GL JS", "OpenFreeMap"],
+    hasApp: true,
+  },
+  {
     slug: "studio-vault",
     title: "Studio Vault",
     // TODO: describe what Studio Vault does.
