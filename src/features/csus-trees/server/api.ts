@@ -10,19 +10,23 @@ import {
   distanceM,
   parseTreeNumber,
   readingInputSchema,
+  speciesUpdateSchema,
   type DeleteReadingResponse,
   type ListMyReadingsResponse,
   type ListTreesResponse,
   type SaveReadingResponse,
   type TreeErrorCode,
   type TreeErrorResponse,
+  type UpdateSpeciesResponse,
 } from "@/features/csus-trees/model";
+import { isSpeciesId } from "@/content/species";
 import {
   deleteReading,
   getProductionTree,
   hasReading,
   listMyReadings,
   listProductionTrees,
+  updateReadingSpecies,
   upsertReading,
 } from "@/features/csus-trees/server/db";
 import { toMyReading, toProductionTree } from "@/features/csus-trees/server/rows";
@@ -168,6 +172,40 @@ export async function handleSaveReading(request: Request, rawTreeNumber: string)
     });
   } catch (error) {
     return serverError("save reading", error);
+  }
+}
+
+/** PATCH /api/csus-trees/readings/{treeNumber}: change only the species of the caller's entry. */
+export async function handleUpdateSpecies(request: Request, rawTreeNumber: string) {
+  const db = getSupabaseAdmin();
+  if (!db) return notConfigured();
+  try {
+    const access = await requireWriter(db);
+    if ("response" in access) return access.response;
+
+    const treeNumber = parseTreeNumber(rawTreeNumber);
+    if (treeNumber === null) return fail("invalid_tree_number", 400);
+
+    let json: unknown;
+    try {
+      json = await request.json();
+    } catch {
+      return fail("invalid_request", 400);
+    }
+    const parsed = speciesUpdateSchema.safeParse(json);
+    if (!parsed.success) return fail("invalid_request", 400);
+    const { speciesId } = parsed.data;
+    if (speciesId !== null && !isSpeciesId(speciesId)) return fail("unknown_species", 400);
+
+    const row = await updateReadingSpecies(db, treeNumber, access.caller.userId, speciesId);
+    if (!row) return fail("not_found", 404);
+
+    // The database recalculated the production tree as part of the update.
+    const tree = await getProductionTree(db, treeNumber);
+    if (!tree) throw new Error(`production tree ${treeNumber} missing after update`);
+    return ok<UpdateSpeciesResponse>({ reading: toMyReading(row), tree: toProductionTree(tree) });
+  } catch (error) {
+    return serverError("update species", error);
   }
 }
 

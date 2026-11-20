@@ -80,6 +80,24 @@ export async function upsertReading(db: SupabaseClient, reading: TreeReadingWrit
   return data as TreeReadingRow;
 }
 
+/** Change only the species of the user's reading. Returns null if they have no reading for that number. */
+export async function updateReadingSpecies(
+  db: SupabaseClient,
+  treeNumber: number,
+  userId: string,
+  speciesId: string | null,
+): Promise<TreeReadingRow | null> {
+  const { data, error } = await db
+    .from("tree_readings")
+    .update({ species_id: speciesId })
+    .eq("tree_number", treeNumber)
+    .eq("user_id", userId)
+    .select(TREE_READING_COLUMNS)
+    .maybeSingle();
+  if (error) throw error;
+  return data as TreeReadingRow | null;
+}
+
 /** Returns false if the user had no reading for that number. */
 export async function deleteReading(db: SupabaseClient, treeNumber: number, userId: string): Promise<boolean> {
   const { data, error } = await db

@@ -10,11 +10,17 @@ type Props = {
   inputId: string;
   value: string | null;
   onChange: (speciesId: string | null) => void;
+  placeholder?: string;
 };
 
 const MAX_RESULTS = 8;
 
-export function SpeciesPicker({ inputId, value, onChange }: Props) {
+export function SpeciesPicker({
+  inputId,
+  value,
+  onChange,
+  placeholder = "Start typing a common or scientific name",
+}: Props) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -81,7 +87,7 @@ export function SpeciesPicker({ inputId, value, onChange }: Props) {
         autoComplete="off"
         autoCapitalize="none"
         spellCheck={false}
-        placeholder="Start typing a common or scientific name"
+        placeholder={placeholder}
         value={query}
         onChange={(event) => {
           setQuery(event.target.value);

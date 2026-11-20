@@ -4,7 +4,9 @@ import type {
   ListTreesResponse,
   ReadingInput,
   SaveReadingResponse,
+  SpeciesUpdateInput,
   TreeErrorResponse,
+  UpdateSpeciesResponse,
 } from "@/features/csus-trees/model";
 
 // Browser-side calls to the CSUS-Trees API. Every call resolves (never throws)
@@ -56,6 +58,14 @@ export function fetchMyReadings() {
 export function saveReading(treeNumber: number, input: ReadingInput) {
   return call<SaveReadingResponse>(`/api/csus-trees/readings/${treeNumber}`, {
     method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(input),
+  });
+}
+
+export function updateSpecies(treeNumber: number, input: SpeciesUpdateInput) {
+  return call<UpdateSpeciesResponse>(`/api/csus-trees/readings/${treeNumber}`, {
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(input),
   });

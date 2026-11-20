@@ -8,9 +8,13 @@ src/features/csus-trees/
   server/rows.ts   database row types and row -> API mappers (server only)
   server/db.ts     database queries (admin client; callers check access first)
   server/api.ts    request handling for the API routes
-  ui/CsusTreesApp.tsx   the page: full-screen map, locate button, Add button
+  ui/CsusTreesApp.tsx   the page: full-screen map, Filter / My entries buttons, locate button, Add button
   ui/TreeMap.tsx        MapLibre map (OpenFreeMap tiles), clustered trees, "you are here" dot
   ui/AddTreeModal.tsx   number, species and location; handles the 409 "is this the tree you meant?"
+  ui/FilterPanel.tsx    filter by tree number and/or species (in the browser, instant)
+  ui/MyEntriesPanel.tsx the user's own entries: show on map, change species, move here, delete
+  ui/Panel.tsx          panel floating over the map (bottom sheet on phones, side panel wider)
+  ui/LocationLine.tsx   one-line location status (blocked, searching, off campus, accuracy)
   ui/SpeciesPicker.tsx  search-as-you-type species combobox
   ui/hooks.ts           useUserLocation (precise GPS), useSignedIn, useIsTouchDevice
   ui/api.ts             browser calls to the API
@@ -32,9 +36,12 @@ All routes live under `src/app/api/csus-trees/` and only call into this feature.
 | `GET /api/csus-trees/trees` | anyone | none | `ListTreesResponse` |
 | `GET /api/csus-trees/readings` | signed in | none | `ListMyReadingsResponse` (caller's own) |
 | `PUT /api/csus-trees/readings/{treeNumber}` | signed in, not blocked | `ReadingInput` | `SaveReadingResponse` |
+| `PATCH /api/csus-trees/readings/{treeNumber}` | signed in, not blocked | `SpeciesUpdateInput` | `UpdateSpeciesResponse` |
 | `DELETE /api/csus-trees/readings/{treeNumber}` | signed in, not blocked | none | `DeleteReadingResponse` |
 
 `PUT` adds the caller's reading for that number, or replaces it if they already have one. The number in the path is the reading's number and can't be changed; to fix a wrong number, delete and re-add. Leading zeros in the path are ignored.
+
+`PATCH` changes only the species of the caller's entry and keeps its location, so it works from anywhere (404 if they have no entry for that number).
 
 Order of checks on `PUT`: signed in (401) -> not blocked (403) -> rate limit (429) -> number (400) -> body shape (400) -> `checkReading()` (400) -> more than 40 m from where the tree is already mapped, without `confirmFar` (409 `far_from_tree` with `distanceM`) -> save.
 

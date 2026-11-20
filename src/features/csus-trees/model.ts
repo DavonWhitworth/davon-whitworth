@@ -88,6 +88,13 @@ export const readingInputSchema = z.object({
 export type ReadingInput = z.input<typeof readingInputSchema>;
 export type ParsedReadingInput = z.output<typeof readingInputSchema>;
 
+/** Body of PATCH /api/csus-trees/readings/{treeNumber}: change only the species, keep the location. */
+export const speciesUpdateSchema = z.object({
+  speciesId: z.string().nullable(),
+});
+
+export type SpeciesUpdateInput = z.infer<typeof speciesUpdateSchema>;
+
 // ---------------------------------------------------------------------------
 // Responses
 // ---------------------------------------------------------------------------
@@ -102,6 +109,13 @@ export type ListMyReadingsResponse = { readings: MyReading[] };
 export type SaveReadingResponse = {
   /** True when this added a new reading, false when it updated the user's existing one. */
   created: boolean;
+  reading: MyReading;
+  /** The production tree after recalculation. */
+  tree: ProductionTree;
+};
+
+/** PATCH /api/csus-trees/readings/{treeNumber} */
+export type UpdateSpeciesResponse = {
   reading: MyReading;
   /** The production tree after recalculation. */
   tree: ProductionTree;
