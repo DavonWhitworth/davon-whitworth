@@ -8,6 +8,7 @@ import {
   checkReading,
   isOnCampus,
   parseTreeNumber,
+  type MyReading,
   type ProductionTree,
   type ReadingInput,
 } from "@/features/csus-trees/model";
@@ -24,7 +25,7 @@ type Props = {
   onClose: () => void;
   signedIn: boolean | undefined;
   location: { status: LocationStatus; position: UserPosition | null; start: () => void };
-  onSaved: (tree: ProductionTree, created: boolean) => void;
+  onSaved: (tree: ProductionTree, created: boolean, reading: MyReading) => void;
 };
 
 /** A reading older than this is too stale to save as "where I'm standing". */
@@ -76,7 +77,7 @@ export function AddTreeModal({ open, onClose, signedIn, location, onSaved }: Pro
     setSaving(false);
 
     if (result.ok) {
-      onSaved(result.data.tree, result.data.created);
+      onSaved(result.data.tree, result.data.created, result.data.reading);
       close();
       return;
     }
@@ -236,7 +237,8 @@ export function AddTreeModal({ open, onClose, signedIn, location, onSaved }: Pro
   }
 
   return (
-    <Modal open={open} onClose={close} label="Add a tree">
+    // Near the top on phones, so the on-screen keyboard doesn't cover the form.
+    <Modal open={open} onClose={close} label="Add a tree" placement="top">
       <h2 className="mb-4 text-xl font-semibold text-fg">Add a tree</h2>
       {renderBody()}
     </Modal>

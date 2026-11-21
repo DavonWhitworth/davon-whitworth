@@ -1,9 +1,9 @@
 "use client";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from "maplibre-gl";
-import { getSpecies } from "@/content/species";
 import { CAMPUS_BOUNDS, type ProductionTree } from "@/features/csus-trees/model";
 import type { UserPosition } from "@/features/csus-trees/ui/hooks";
 
@@ -36,7 +36,12 @@ type Props = {
   focus: MapFocus | null;
   /** Increase this to move the map to the user as soon as their location is known. */
   followUserKey: number;
+  /** Content of the popup for a tapped tree. `close` closes the popup. */
+  renderPopup: (treeNumber: number, close: () => void) => ReactNode;
 };
+
+/** The open popup: React renders into `container`, which MapLibre places on the map. */
+type OpenPopup = { treeNumber: number; container: HTMLElement; close: () => void };
 
 type Point = { type: "Point"; coordinates: [number, number] };
 type Polygon = { type: "Polygon"; coordinates: [number, number][][] };
@@ -85,40 +90,13 @@ function userToGeoJson(position: UserPosition | null): FeatureCollection<Point |
   };
 }
 
-/** Popup content, built as DOM nodes so nothing is parsed as HTML. */
-function treePopup(treeNumber: number, speciesId: string, readingCount: number): HTMLElement {
-  const root = document.createElement("div");
-  root.className = "text-sm text-neutral-900";
-
-  const title = document.createElement("p");
-  title.className = "font-semibold";
-  title.textContent = `Tree #${treeNumber}`;
-  root.append(title);
-
-  const species = speciesId ? getSpecies(speciesId) : undefined;
-  const name = document.createElement("p");
-  name.textContent = species ? species.commonName : "Species not recorded yet";
-  root.append(name);
-  if (species) {
-    const scientific = document.createElement("p");
-    scientific.className = "italic text-neutral-600";
-    scientific.textContent = species.scientificName;
-    root.append(scientific);
-  }
-
-  const count = document.createElement("p");
-  count.className = "mt-1 text-xs text-neutral-600";
-  count.textContent = `Based on ${readingCount} ${readingCount === 1 ? "entry" : "entries"}`;
-  root.append(count);
-  return root;
-}
-
-export function TreeMap({ trees, userPosition, focus, followUserKey }: Props) {
+export function TreeMap({ trees, userPosition, focus, followUserKey, renderPopup }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const followedKeyRef = useRef(0);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [popup, setPopup] = useState<OpenPopup | null>(null);
 
   // Create the map once. MapLibre is loaded in the browser only.
   useEffect(() => {
@@ -238,15 +216,17 @@ export function TreeMap({ trees, userPosition, focus, followUserKey }: Props) {
           map?.easeTo({ center: feature.geometry.coordinates as [number, number], zoom });
         });
 
-        // Tap a tree for its number and species.
+        // Tap a tree for its details. React renders the content (see renderPopup).
         map.on("click", "tree-points", (event: MapLayerMouseEvent) => {
           const feature = event.features?.[0];
           if (!feature || !map || feature.geometry.type !== "Point") return;
-          const { n, s, c } = feature.properties;
-          new maplibre.Popup({ offset: 12, maxWidth: "240px" })
+          const container = document.createElement("div");
+          const instance = new maplibre.Popup({ offset: 12, maxWidth: "260px" })
             .setLngLat(feature.geometry.coordinates as [number, number])
-            .setDOMContent(treePopup(Number(n), String(s ?? ""), Number(c)))
+            .setDOMContent(container)
             .addTo(map);
+          instance.on("close", () => setPopup((current) => (current?.container === container ? null : current)));
+          setPopup({ treeNumber: Number(feature.properties.n), container, close: () => instance.remove() });
         });
 
         for (const layer of ["tree-clusters", "tree-points"]) {
@@ -294,6 +274,7 @@ export function TreeMap({ trees, userPosition, focus, followUserKey }: Props) {
   return (
     <div className="absolute inset-0">
       <div ref={containerRef} className="h-full w-full" aria-label="Map of campus trees" role="region" />
+      {popup ? createPortal(renderPopup(popup.treeNumber, popup.close), popup.container) : null}
       {failed ? (
         <p className="absolute inset-0 flex items-center justify-center p-6 text-center text-muted">
           The map couldn&apos;t load in this browser.

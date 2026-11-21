@@ -7,6 +7,11 @@ interface ModalProps {
   onClose: () => void;
   /** Accessible name announced when the dialog opens. */
   label: string;
+  /**
+   * "center" (default) or "top". "top" keeps the dialog near the top of the
+   * screen on phones, so the on-screen keyboard doesn't cover a form.
+   */
+  placement?: "center" | "top";
   children: ReactNode;
 }
 
@@ -14,7 +19,7 @@ interface ModalProps {
 // trap, makes the rest of the page inert, closes on Escape, and returns focus
 // to the button that opened it. It also closes on the X button and when the
 // backdrop (the area outside the box) is clicked.
-export function Modal({ open, onClose, label, children }: ModalProps) {
+export function Modal({ open, onClose, label, placement = "center", children }: ModalProps) {
   const ref = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -36,7 +41,9 @@ export function Modal({ open, onClose, label, children }: ModalProps) {
       aria-label={label}
       onClick={onBackdropClick}
       onClose={onClose}
-      className="m-auto w-[min(92vw,28rem)] rounded-card border border-border bg-surface p-0 text-fg backdrop:bg-black/60"
+      className={`${
+        placement === "top" ? "mx-auto mt-[max(1rem,env(safe-area-inset-top))] mb-auto sm:m-auto" : "m-auto"
+      } max-h-[calc(100dvh-2rem)] w-[min(92vw,28rem)] overflow-y-auto rounded-card border border-border bg-surface p-0 text-fg backdrop:bg-black/60`}
     >
       <div className="relative p-6 pr-16">
         <button

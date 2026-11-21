@@ -10,7 +10,8 @@ import {
   type ProductionTree,
   type ReadingInput,
 } from "@/features/csus-trees/model";
-import { deleteReading, fetchMyReadings, saveReading, updateSpecies } from "@/features/csus-trees/ui/api";
+import { fetchMyReadings, saveReading, updateSpecies } from "@/features/csus-trees/ui/api";
+import { DeleteEntryConfirm } from "@/features/csus-trees/ui/DeleteEntryConfirm";
 import { useIsTouchDevice, type LocationStatus, type UserPosition } from "@/features/csus-trees/ui/hooks";
 import { LocationLine } from "@/features/csus-trees/ui/LocationLine";
 import { Panel } from "@/features/csus-trees/ui/Panel";
@@ -136,7 +137,7 @@ export function MyEntriesPanel({
               }}
               onDeleted={(tree) => {
                 removeEntry(entry.treeNumber);
-                onTreeChanged(entry.treeNumber, tree);
+                if (tree !== undefined) onTreeChanged(entry.treeNumber, tree);
               }}
               onShowOnMap={onShowOnMap}
             />
@@ -171,7 +172,7 @@ function EntryItem({
   tree: ProductionTree | null;
   location: Location;
   onUpdated: (reading: MyReading, tree: ProductionTree) => void;
-  onDeleted: (tree: ProductionTree | null) => void;
+  onDeleted: (tree: ProductionTree | null | undefined) => void;
   onShowOnMap: (lat: number, lng: number) => void;
 }) {
   const isTouch = useIsTouchDevice();
@@ -236,19 +237,6 @@ function EntryItem({
     if (result.ok) {
       onUpdated(result.data.reading, result.data.tree);
       setMode({ kind: "view" });
-    } else {
-      setError(result.error.error);
-    }
-  }
-
-  async function remove() {
-    setWorking(true);
-    setError(null);
-    const result = await deleteReading(entry.treeNumber);
-    setWorking(false);
-    // 404 means it was already gone: treat it as deleted.
-    if (result.ok || result.status === 404) {
-      onDeleted(result.ok ? result.data.tree : tree);
     } else {
       setError(result.error.error);
     }
@@ -366,28 +354,12 @@ function EntryItem({
 
       {mode.kind === "confirmDelete" ? (
         <div className="mt-3 border-t border-border pt-3">
-          <p className="text-sm text-fg">
-            Delete your entry for tree #{entry.treeNumber}? This can&apos;t be undone.
-            {tree && tree.readingCount === 1 ? " It's the only entry, so the tree will disappear from the map." : ""}
-          </p>
-          {error ? (
-            <p className="mt-2 text-sm text-status-archived" role="alert">
-              {error}
-            </p>
-          ) : null}
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button
-              type="button"
-              disabled={working}
-              onClick={() => void remove()}
-              className="rounded-full border border-status-archived px-4 py-1.5 text-sm font-medium text-status-archived transition-colors hover:bg-surface-2 disabled:opacity-50"
-            >
-              {working ? "Deleting…" : "Delete"}
-            </button>
-            <button type="button" className={smallButton} onClick={() => setMode({ kind: "view" })}>
-              Cancel
-            </button>
-          </div>
+          <DeleteEntryConfirm
+            treeNumber={entry.treeNumber}
+            isOnlyEntry={tree !== null && tree.readingCount === 1}
+            onDeleted={onDeleted}
+            onCancel={() => setMode({ kind: "view" })}
+          />
         </div>
       ) : null}
     </li>

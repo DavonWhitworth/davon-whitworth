@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { AuthButton } from "@/components/auth/AuthButton";
 import type { MyReading, ProductionTree } from "@/features/csus-trees/model";
 import { AddTreeModal } from "@/features/csus-trees/ui/AddTreeModal";
-import { fetchTrees } from "@/features/csus-trees/ui/api";
+import { fetchMyReadings, fetchTrees } from "@/features/csus-trees/ui/api";
 import {
   FilterPanel,
   NO_FILTER,
@@ -17,6 +17,7 @@ import {
 import { useSignedIn, useUserLocation } from "@/features/csus-trees/ui/hooks";
 import { MyEntriesPanel } from "@/features/csus-trees/ui/MyEntriesPanel";
 import { TreeMap, type MapFocus } from "@/features/csus-trees/ui/TreeMap";
+import { TreePopup } from "@/features/csus-trees/ui/TreePopup";
 
 // The whole CSUS-Trees app: full-screen map, "you are here" dot, filters,
 // the user's own entries, and the "Add a tree" dialog. Panels float over the
@@ -40,8 +41,13 @@ function upsertTree(trees: ProductionTree[], tree: ProductionTree): ProductionTr
   return [...trees.filter((t) => t.treeNumber !== tree.treeNumber), tree];
 }
 
+function upsertEntry(entries: MyReading[], entry: MyReading): MyReading[] {
+  return [...entries.filter((e) => e.treeNumber !== entry.treeNumber), entry];
+}
+
 export function CsusTreesApp() {
   const [trees, setTrees] = useState<ProductionTree[]>([]);
+  const [treesLoaded, setTreesLoaded] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
   const [addOpen, setAddOpen] = useState(false);
@@ -57,6 +63,13 @@ export function CsusTreesApp() {
 
   const visibleTrees = useMemo(() => filterTrees(trees, filter), [trees, filter]);
   const filterActive = isFilterActive(filter);
+  const treesByNumber = useMemo(() => new Map(trees.map((tree) => [tree.treeNumber, tree])), [trees]);
+  // Never use a cached list for someone who has since signed out.
+  const visibleEntries = signedIn ? myEntries : null;
+  const myEntryByNumber = useMemo(
+    () => new Map((visibleEntries ?? []).map((entry) => [entry.treeNumber, entry])),
+    [visibleEntries],
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -64,6 +77,7 @@ export function CsusTreesApp() {
       if (cancelled) return;
       if (result.ok) {
         setTrees(result.data.trees);
+        setTreesLoaded(true);
         setLoadError(null);
       } else {
         setLoadError(result.error.error);
@@ -73,6 +87,19 @@ export function CsusTreesApp() {
       cancelled = true;
     };
   }, [reloadKey]);
+
+  // Load the user's own entries when they sign in, so tapping a tree they
+  // added can offer "Delete my entry" without opening the list.
+  useEffect(() => {
+    if (!signedIn) return;
+    let cancelled = false;
+    fetchMyReadings().then((result) => {
+      if (!cancelled && result.ok) setMyEntries(result.data.readings);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [signedIn]);
 
   useEffect(() => {
     if (!notice) return;
@@ -107,15 +134,34 @@ export function CsusTreesApp() {
     setAddOpen(true);
   }
 
-  function onSaved(tree: ProductionTree, created: boolean) {
+  function onSaved(tree: ProductionTree, created: boolean, reading: MyReading) {
     setTrees((current) => upsertTree(current, tree));
-    setMyEntries(null); // refetched next time "My entries" opens
+    setMyEntries((current) => upsertEntry(current ?? [], reading));
     setFocus({ lat: tree.lat, lng: tree.lng, zoom: 18, key: Date.now() });
     setNotice(created ? `Tree #${tree.treeNumber} added. Thank you!` : `Your entry for tree #${tree.treeNumber} was updated.`);
   }
 
   function onTreeChanged(treeNumber: number, tree: ProductionTree | null) {
     setTrees((current) => (tree ? upsertTree(current, tree) : current.filter((t) => t.treeNumber !== treeNumber)));
+  }
+
+  function renderPopup(treeNumber: number, close: () => void) {
+    const tree = treesByNumber.get(treeNumber);
+    if (!tree) return null;
+    return (
+      <TreePopup
+        key={treeNumber}
+        tree={tree}
+        myEntry={myEntryByNumber.get(treeNumber) ?? null}
+        onDeleted={(updated) => {
+          setMyEntries((current) => (current ? current.filter((entry) => entry.treeNumber !== treeNumber) : current));
+          if (updated !== undefined) onTreeChanged(treeNumber, updated);
+          // The tree is gone from the map when its last entry is deleted.
+          if (updated === null) close();
+          setNotice(`Your entry for tree #${treeNumber} was deleted.`);
+        }}
+      />
+    );
   }
 
   function showOnMap(lat: number, lng: number) {
@@ -128,7 +174,13 @@ export function CsusTreesApp() {
     <main className="relative h-dvh w-full overflow-hidden bg-bg">
       <h1 className="sr-only">CSUS-Trees: map of Sacramento State campus trees</h1>
 
-      <TreeMap trees={visibleTrees} userPosition={location.position} focus={focus} followUserKey={followUserKey} />
+      <TreeMap
+        trees={visibleTrees}
+        userPosition={location.position}
+        focus={focus}
+        followUserKey={followUserKey}
+        renderPopup={renderPopup}
+      />
 
       {/* Top bar */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 p-4">
@@ -173,6 +225,11 @@ export function CsusTreesApp() {
               </button>
             </div>
           ) : null}
+          {treesLoaded ? (
+            <p className={`ml-auto ${pill} hover:bg-surface/90`} aria-live="polite">
+              <span className="font-semibold">{trees.length}</span> {trees.length === 1 ? "tree" : "trees"} mapped
+            </p>
+          ) : null}
         </div>
       </div>
 
@@ -189,8 +246,7 @@ export function CsusTreesApp() {
       {panel === "mine" ? (
         <MyEntriesPanel
           signedIn={signedIn}
-          // Never show a cached list to someone who has since signed out.
-          entries={signedIn ? myEntries : null}
+          entries={visibleEntries}
           onEntriesChange={setMyEntries}
           trees={trees}
           location={location}
