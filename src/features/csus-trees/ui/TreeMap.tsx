@@ -123,6 +123,14 @@ export function TreeMap({ trees, userPosition, focus, followUserKey, renderPopup
 
       map.on("error", (event) => console.error("[csus-trees] map error:", event.error));
 
+      // OpenFreeMap's style names a few point-of-interest icons (atm, gate,
+      // swimming_pool...) that its own icon sheet doesn't include. Fill each one
+      // with a blank transparent pixel: the map looks the same, minus the warnings.
+      const blankIcon = { width: 1, height: 1, data: new Uint8Array(4) };
+      map.setMissingStyleImageResolver((id) => {
+        if (map && !map.hasImage(id)) map.addImage(id, blankIcon);
+      });
+
       map.on("load", () => {
         if (!map) return;
 
